@@ -1,0 +1,23 @@
+{
+  "model": "EfficientNet-B0",
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 3.3492,
+      "train_acc": 32.11,
+      "val_loss": 2.5629,
+      "val_acc": 68.42,
+      "duration_s": 551.3
+    },
+    {
+      "epoch": 2,
+      "train_loss": 1.8527,
+      "train_acc": 61.79,
+      "val_loss": 0.7937,
+      "val_acc": 83.68,
+      "duration_s": 783.5,
+      "lr": 1e-06
+    }
+  ],
+  "best_val_acc": 83.6842105263158
+}

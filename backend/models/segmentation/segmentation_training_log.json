@@ -1,0 +1,26 @@
+{
+  "model": "UNet-PlantSeg",
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.425,
+      "train_iou": 0.2125,
+      "train_dice": 0.3428,
+      "val_loss": 1.2718,
+      "val_iou": 0.2942,
+      "val_dice": 0.4439,
+      "duration_s": 419.1
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.4309,
+      "train_dice": 0.3992,
+      "train_iou": 0.2529,
+      "val_loss": 0.3906,
+      "val_dice": 0.4357,
+      "val_iou": 0.2877,
+      "duration_s": 547.1
+    }
+  ],
+  "best_val_dice": 0.4438771041196392
+}

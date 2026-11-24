@@ -1,0 +1,23 @@
+{
+  "model": "MobileNetV3-Small",
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 2.6161,
+      "train_acc": 41.45,
+      "val_loss": 1.7012,
+      "val_acc": 55.53,
+      "duration_s": 144.4
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.9883,
+      "train_acc": 76.84,
+      "val_loss": 0.6029,
+      "val_acc": 83.16,
+      "duration_s": 13505.9,
+      "lr": 1e-06
+    }
+  ],
+  "best_val_acc": 83.15789473684211
+}

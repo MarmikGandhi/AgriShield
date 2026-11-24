@@ -1,0 +1,92 @@
+{
+  "timestamp": "2026-11-24T14:06:26Z",
+  "total_test_cases": 6,
+  "passed_test_cases": 6,
+  "mean_absolute_percentage_error": 0.15,
+  "test_cases": [
+    {
+      "case_id": "CASE_01_REAL_PLANTSEG",
+      "description": "Real PlantSeg garlic rust leaf with verified ground truth mask",
+      "leaf_pixels": 58830,
+      "ground_truth_diseased_pixels": 7740,
+      "ground_truth_affected_pct": 13.16,
+      "predicted_raw_affected_pct": 13.16,
+      "predicted_filtered_affected_pct": 13.16,
+      "absolute_percentage_error": 0.0,
+      "severity_level": "Medium",
+      "severity_reliability": "APPROXIMATE",
+      "discrepancy_detected": false,
+      "pass_status": true
+    },
+    {
+      "case_id": "CASE_02_HEALTHY_SUB_NOISE",
+      "description": "Healthy prediction with sub-noise floor foliar lesion (0.8% GT)",
+      "leaf_pixels": 15373,
+      "ground_truth_diseased_pixels": 122,
+      "ground_truth_affected_pct": 0.8,
+      "predicted_raw_affected_pct": 0.74,
+      "predicted_filtered_affected_pct": 0.0,
+      "absolute_percentage_error": 0.06,
+      "severity_level": "None (Healthy)",
+      "severity_reliability": "RELIABLE",
+      "discrepancy_detected": false,
+      "pass_status": true
+    },
+    {
+      "case_id": "CASE_03_HEALTHY_LARGE_DISCREPANCY",
+      "description": "Healthy prediction with large detected lesion (9.0% GT)",
+      "leaf_pixels": 15373,
+      "ground_truth_diseased_pixels": 1383,
+      "ground_truth_affected_pct": 9.0,
+      "predicted_raw_affected_pct": 8.18,
+      "predicted_filtered_affected_pct": 8.18,
+      "absolute_percentage_error": 0.82,
+      "severity_level": "Discrepancy (Review Required)",
+      "severity_reliability": "RELIABLE",
+      "discrepancy_detected": true,
+      "pass_status": true
+    },
+    {
+      "case_id": "CASE_04_TINY_CANOPY_REJECTION",
+      "description": "Tiny canopy (<4% frame) with background prob map",
+      "leaf_pixels": 0,
+      "ground_truth_diseased_pixels": 0,
+      "ground_truth_affected_pct": 0.0,
+      "predicted_raw_affected_pct": 0.0,
+      "predicted_filtered_affected_pct": 0.0,
+      "absolute_percentage_error": 0.0,
+      "severity_level": "Unavailable (Unreliable Leaf Boundary)",
+      "severity_reliability": "UNRELIABLE",
+      "discrepancy_detected": false,
+      "pass_status": true
+    },
+    {
+      "case_id": "CASE_05_BACKGROUND_FALSE_ALARM_EXCLUSION",
+      "description": "Background clutter with false-alarm probabilities outside leaf",
+      "leaf_pixels": 11289,
+      "ground_truth_diseased_pixels": 0,
+      "ground_truth_affected_pct": 0.0,
+      "predicted_raw_affected_pct": 0.0,
+      "predicted_filtered_affected_pct": 0.0,
+      "absolute_percentage_error": 0.0,
+      "severity_level": "Low",
+      "severity_reliability": "RELIABLE",
+      "discrepancy_detected": false,
+      "pass_status": true
+    },
+    {
+      "case_id": "CASE_06_BORDER_OCCLUSION_APPROXIMATE",
+      "description": "Partially occluded leaf touching 3 borders",
+      "leaf_pixels": 36200,
+      "ground_truth_diseased_pixels": 0,
+      "ground_truth_affected_pct": 0.0,
+      "predicted_raw_affected_pct": 0.0,
+      "predicted_filtered_affected_pct": 0.0,
+      "absolute_percentage_error": 0.0,
+      "severity_level": "Low",
+      "severity_reliability": "APPROXIMATE",
+      "discrepancy_detected": false,
+      "pass_status": true
+    }
+  ]
+}

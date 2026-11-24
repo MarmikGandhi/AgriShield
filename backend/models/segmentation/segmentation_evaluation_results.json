@@ -1,0 +1,12 @@
+{
+  "dataset": "PlantSeg Untouched Test Split",
+  "sample_count": 150,
+  "mean_dice": 0.3357,
+  "mean_dice_pct": 33.57,
+  "mean_iou": 0.224,
+  "mean_iou_pct": 22.4,
+  "pixel_precision": 0.3904,
+  "pixel_recall": 0.4936,
+  "pixel_accuracy": 0.7483,
+  "triplets_saved": 10
+}

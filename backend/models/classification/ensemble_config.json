@@ -1,0 +1,21 @@
+{
+  "ensemble_type": "weighted_probability_average",
+  "models": {
+    "efficientnet_b0": {
+      "checkpoint": "efficientnet_b0_best.pth",
+      "weight": 0.95,
+      "val_accuracy": 68.42
+    },
+    "mobilenet_v3": {
+      "checkpoint": "mobilenet_v3_best.pth",
+      "weight": 0.05,
+      "val_accuracy": 55.53
+    }
+  },
+  "ensemble_val_accuracy": 70.53,
+  "num_classes": 38,
+  "input_resolution": [
+    224,
+    224
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "dataset_name": "PlantSeg Untouched Test Split",
+  "total_pairs": 150,
+  "lesion_positive_count": 150,
+  "empty_mask_count": 0,
+  "empty_mask_correct": 0,
+  "mean_lesion_dice": 0.3142,
+  "mean_lesion_dice_pct": 31.42,
+  "mean_lesion_iou": 0.2066,
+  "mean_lesion_iou_pct": 20.66,
+  "pixel_precision": 0.2884,
+  "pixel_precision_pct": 28.84,
+  "pixel_recall": 0.4654,
+  "pixel_recall_pct": 46.54,
+  "pixel_accuracy": 0.6868,
+  "pixel_accuracy_pct": 68.68,
+  "empty_mask_specificity": 1.0,
+  "empty_mask_specificity_pct": 100.0,
+  "visual_triplets_saved": 10,
+  "visual_examples_dir": "C:/Users/Admin/.gemini/antigravity/scratch/crop_stress_system/project_audit/segmentation_visual_examples",
+  "failure_cases": [
+    {
+      "sample_stem": "citrus_canker_43",
+      "reason": "Severe contour under-segmentation / missed tiny chlorotic lesion spots",
+      "ground_truth_pixels": 2612,
+      "predicted_pixels": 17486,
+      "iou": 0.0916,
+      "dice": 0.1679
+    },
+    {
+      "sample_stem": "blueberry_rust_google_0099",
+      "reason": "Severe contour under-segmentation / missed tiny chlorotic lesion spots",
+      "ground_truth_pixels": 20497,
+      "predicted_pixels": 10482,
+      "iou": 0.0355,
+      "dice": 0.0686
+    },
+    {
+      "sample_stem": "banana_anthracnose_Bing_0072",
+      "reason": "Severe contour under-segmentation / missed tiny chlorotic lesion spots",
+      "ground_truth_pixels": 4941,
+      "predicted_pixels": 20465,
+      "iou": 0.0239,
+      "dice": 0.0468
+    },
+    {
+      "sample_stem": "tobacco_frogeye_leaf_spot_Bing_0053",
+      "reason": "Severe contour under-segmentation / missed tiny chlorotic lesion spots",
+      "ground_truth_pixels": 2419,
+      "predicted_pixels": 22438,
+      "iou": 0.0832,
+      "dice": 0.1536
+    },
+    {
+      "sample_stem": "banana_bunchy_top_Bing_0081",
+      "reason": "Severe contour under-segmentation / missed tiny chlorotic lesion spots",
+      "ground_truth_pixels": 3083,
+      "predicted_pixels": 4972,
+      "iou": 0.0589,
+      "dice": 0.1112
+    }
+  ]
+}

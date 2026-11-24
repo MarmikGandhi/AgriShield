@@ -1,0 +1,1508 @@
+{
+  "train": [
+    {
+      "stem": "plum_brown_rot_Bing_0132",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\plum_brown_rot_Bing_0132.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\plum_brown_rot_Bing_0132.png"
+    },
+    {
+      "stem": "wheat_head_scab_Baidu_0095",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\wheat_head_scab_Baidu_0095.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\wheat_head_scab_Baidu_0095.png"
+    },
+    {
+      "stem": "wheat_stripe_rust_Baidu_0415",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\wheat_stripe_rust_Baidu_0415.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\wheat_stripe_rust_Baidu_0415.png"
+    },
+    {
+      "stem": "tomato_mosaic_virus_19",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\val\\tomato_mosaic_virus_19.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\val\\tomato_mosaic_virus_19.png"
+    },
+    {
+      "stem": "tobacco_brown_spot_Bing_0147",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\tobacco_brown_spot_Bing_0147.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\tobacco_brown_spot_Bing_0147.png"
+    },
+    {
+      "stem": "grape_downy_mildew_258",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\grape_downy_mildew_258.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\grape_downy_mildew_258.png"
+    },
+    {
+      "stem": "ginger_sheath_blight_73",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\ginger_sheath_blight_73.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\ginger_sheath_blight_73.png"
+    },
+    {
+      "stem": "apple_mosaic_virus_68",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\apple_mosaic_virus_68.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\apple_mosaic_virus_68.png"
+    },
+    {
+      "stem": "citrus_canker_197",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\citrus_canker_197.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\citrus_canker_197.png"
+    },
+    {
+      "stem": "bell_pepper_bacterial_spot_Bing_0068",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\bell_pepper_bacterial_spot_Bing_0068.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\bell_pepper_bacterial_spot_Bing_0068.png"
+    },
+    {
+      "stem": "apple_black_rot_google_0174",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\apple_black_rot_google_0174.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\apple_black_rot_google_0174.png"
+    },
+    {
+      "stem": "cucumber_angular_leaf_spot_151",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\cucumber_angular_leaf_spot_151.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\cucumber_angular_leaf_spot_151.png"
+    },
+    {
+      "stem": "wheat_bacterial_leaf_streak_(black_chaff)_google_black_chaff (15)",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\wheat_bacterial_leaf_streak_(black_chaff)_google_black_chaff (15).jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\wheat_bacterial_leaf_streak_(black_chaff)_google_black_chaff (15).png"
+    },
+    {
+      "stem": "zucchini_powdery_mildew_Bing_0194",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\zucchini_powdery_mildew_Bing_0194.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\zucchini_powdery_mildew_Bing_0194.png"
+    },
+    {
+      "stem": "tomato_bacterial_leaf_spot_google_0111",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\tomato_bacterial_leaf_spot_google_0111.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\tomato_bacterial_leaf_spot_google_0111.png"
+    },
+    {
+      "stem": "peach_rust_Bing_0001",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\peach_rust_Bing_0001.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\peach_rust_Bing_0001.png"
+    },
+    {
+      "stem": "peach_leaf_curl_google_0197",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\peach_leaf_curl_google_0197.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\peach_leaf_curl_google_0197.png"
+    },
+    {
+      "stem": "tomato_late_blight_google_0140",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\val\\tomato_late_blight_google_0140.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\val\\tomato_late_blight_google_0140.png"
+    },
+    {
+      "stem": "tomato_early_blight_google_0305",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\tomato_early_blight_google_0305.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\tomato_early_blight_google_0305.png"
+    },
+    {
+      "stem": "cabbage_downy_mildew_Bing_0130",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\cabbage_downy_mildew_Bing_0130.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\cabbage_downy_mildew_Bing_0130.png"
+    },
+    {
+      "stem": "citrus_canker_436",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\citrus_canker_436.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\citrus_canker_436.png"
+    },
+    {
+      "stem": "coffee_berry_blotch_Bing_0089",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\coffee_berry_blotch_Bing_0089.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\coffee_berry_blotch_Bing_0089.png"
+    },
+    {
+      "stem": "corn_rust_google_0044",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\corn_rust_google_0044.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\corn_rust_google_0044.png"
+    },
+    {
+      "stem": "apple_black_rot_google_0056",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\val\\apple_black_rot_google_0056.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\val\\apple_black_rot_google_0056.png"
+    },
+    {
+      "stem": "grape_downy_mildew_google_0025",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\grape_downy_mildew_google_0025.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\grape_downy_mildew_google_0025.png"
+    },
+    {
+      "stem": "soybean_frog_eye_leaf_spot_Bing_0218",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\soybean_frog_eye_leaf_spot_Bing_0218.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\soybean_frog_eye_leaf_spot_Bing_0218.png"
+    },
+    {
+      "stem": "rice_sheath_blight_google_0002",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\rice_sheath_blight_google_0002.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\rice_sheath_blight_google_0002.png"
+    },
+    {
+      "stem": "basil_downy_mildew_google_0097",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\basil_downy_mildew_google_0097.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\basil_downy_mildew_google_0097.png"
+    },
+    {
+      "stem": "wheat_stripe_rust_Baidu_0005",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\val\\wheat_stripe_rust_Baidu_0005.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\val\\wheat_stripe_rust_Baidu_0005.png"
+    },
+    {
+      "stem": "cucumber_angular_leaf_spot_286",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\cucumber_angular_leaf_spot_286.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\cucumber_angular_leaf_spot_286.png"
+    },
+    {
+      "stem": "peach_leaf_curl_17",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\peach_leaf_curl_17.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\peach_leaf_curl_17.png"
+    },
+    {
+      "stem": "plum_pox_virus_Bing_0112",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\plum_pox_virus_Bing_0112.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\plum_pox_virus_Bing_0112.png"
+    },
+    {
+      "stem": "tomato_yellow_leaf_curl_virus_google_0027",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\tomato_yellow_leaf_curl_virus_google_0027.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\tomato_yellow_leaf_curl_virus_google_0027.png"
+    },
+    {
+      "stem": "citrus_greening_disease_8",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\citrus_greening_disease_8.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\citrus_greening_disease_8.png"
+    },
+    {
+      "stem": "raspberry_yellow_rust_Bing_0027",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\raspberry_yellow_rust_Bing_0027.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\raspberry_yellow_rust_Bing_0027.png"
+    },
+    {
+      "stem": "citrus_canker_314",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\citrus_canker_314.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\citrus_canker_314.png"
+    },
+    {
+      "stem": "broccoli_alternaria_leaf_spot_Bing_0179",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\broccoli_alternaria_leaf_spot_Bing_0179.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\broccoli_alternaria_leaf_spot_Bing_0179.png"
+    },
+    {
+      "stem": "wheat_powdery_mildew_Baidu_0243",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\wheat_powdery_mildew_Baidu_0243.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\wheat_powdery_mildew_Baidu_0243.png"
+    },
+    {
+      "stem": "cucumber_powdery_mildew_google_0116",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\cucumber_powdery_mildew_google_0116.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\cucumber_powdery_mildew_google_0116.png"
+    },
+    {
+      "stem": "zucchini_powdery_mildew_Bing_0122",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\zucchini_powdery_mildew_Bing_0122.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\zucchini_powdery_mildew_Bing_0122.png"
+    },
+    {
+      "stem": "banana_cordana_leaf_spot_Baidu_0114",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\banana_cordana_leaf_spot_Baidu_0114.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\banana_cordana_leaf_spot_Baidu_0114.png"
+    },
+    {
+      "stem": "tobacco_frogeye_leaf_spot_Bing_0103",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\tobacco_frogeye_leaf_spot_Bing_0103.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\tobacco_frogeye_leaf_spot_Bing_0103.png"
+    },
+    {
+      "stem": "tomato_yellow_leaf_curl_virus_google_0013",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\tomato_yellow_leaf_curl_virus_google_0013.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\tomato_yellow_leaf_curl_virus_google_0013.png"
+    },
+    {
+      "stem": "carrot_alternaria_leaf_blight_Bing_0020",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\carrot_alternaria_leaf_blight_Bing_0020.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\carrot_alternaria_leaf_blight_Bing_0020.png"
+    },
+    {
+      "stem": "apple_mosaic_virus_40",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\apple_mosaic_virus_40.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\apple_mosaic_virus_40.png"
+    },
+    {
+      "stem": "plum_pocket_disease_google_0143",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\plum_pocket_disease_google_0143.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\plum_pocket_disease_google_0143.png"
+    },
+    {
+      "stem": "raspberry_leaf_spot_Bing_0050",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\raspberry_leaf_spot_Bing_0050.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\raspberry_leaf_spot_Bing_0050.png"
+    },
+    {
+      "stem": "rice_sheath_blight_48",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\rice_sheath_blight_48.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\rice_sheath_blight_48.png"
+    },
+    {
+      "stem": "wheat_stripe_rust_Baidu_0404",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\wheat_stripe_rust_Baidu_0404.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\wheat_stripe_rust_Baidu_0404.png"
+    },
+    {
+      "stem": "squash_powdery_mildew_google_0073",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\squash_powdery_mildew_google_0073.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\squash_powdery_mildew_google_0073.png"
+    },
+    {
+      "stem": "plum_rust_Bing_0036",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\plum_rust_Bing_0036.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\plum_rust_Bing_0036.png"
+    },
+    {
+      "stem": "banana_cigar_end_rot_Google_0263",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\banana_cigar_end_rot_Google_0263.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\banana_cigar_end_rot_Google_0263.png"
+    },
+    {
+      "stem": "apple_mosaic_virus_google_0020",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\val\\apple_mosaic_virus_google_0020.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\val\\apple_mosaic_virus_google_0020.png"
+    },
+    {
+      "stem": "wheat_stripe_rust_Baidu_0109",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\wheat_stripe_rust_Baidu_0109.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\wheat_stripe_rust_Baidu_0109.png"
+    },
+    {
+      "stem": "peach_brown_rot_Bing_0031",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\peach_brown_rot_Bing_0031.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\peach_brown_rot_Bing_0031.png"
+    },
+    {
+      "stem": "carrot_cavity_spot_google_0006",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\carrot_cavity_spot_google_0006.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\carrot_cavity_spot_google_0006.png"
+    },
+    {
+      "stem": "bell_pepper_bacterial_spot_Bing_0164",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\bell_pepper_bacterial_spot_Bing_0164.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\bell_pepper_bacterial_spot_Bing_0164.png"
+    },
+    {
+      "stem": "cauliflower_alternaria_leaf_spot_17",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\cauliflower_alternaria_leaf_spot_17.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\cauliflower_alternaria_leaf_spot_17.png"
+    },
+    {
+      "stem": "tomato_bacterial_leaf_spot_20",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\val\\tomato_bacterial_leaf_spot_20.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\val\\tomato_bacterial_leaf_spot_20.png"
+    },
+    {
+      "stem": "garlic_rust_google_0090",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\garlic_rust_google_0090.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\garlic_rust_google_0090.png"
+    },
+    {
+      "stem": "citrus_canker_29",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\citrus_canker_29.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\citrus_canker_29.png"
+    },
+    {
+      "stem": "zucchini_powdery_mildew_Bing_0330",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\val\\zucchini_powdery_mildew_Bing_0330.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\val\\zucchini_powdery_mildew_Bing_0330.png"
+    },
+    {
+      "stem": "corn_rust_10",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\corn_rust_10.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\corn_rust_10.png"
+    },
+    {
+      "stem": "grape_downy_mildew_1",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\grape_downy_mildew_1.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\grape_downy_mildew_1.png"
+    },
+    {
+      "stem": "wheat_stripe_rust_Baidu_0080",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\wheat_stripe_rust_Baidu_0080.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\wheat_stripe_rust_Baidu_0080.png"
+    },
+    {
+      "stem": "apple_scab_google_0065",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\apple_scab_google_0065.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\apple_scab_google_0065.png"
+    },
+    {
+      "stem": "tomato_leaf_mold_203",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\tomato_leaf_mold_203.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\tomato_leaf_mold_203.png"
+    },
+    {
+      "stem": "wheat_leaf_rust_Baidu_0007",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\val\\wheat_leaf_rust_Baidu_0007.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\val\\wheat_leaf_rust_Baidu_0007.png"
+    },
+    {
+      "stem": "zucchini_powdery_mildew_Bing_0009",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\zucchini_powdery_mildew_Bing_0009.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\zucchini_powdery_mildew_Bing_0009.png"
+    },
+    {
+      "stem": "soybean_bacterial_blight_Bing_0084",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\soybean_bacterial_blight_Bing_0084.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\soybean_bacterial_blight_Bing_0084.png"
+    },
+    {
+      "stem": "wheat_head_scab_Bing_0023",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\wheat_head_scab_Bing_0023.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\wheat_head_scab_Bing_0023.png"
+    },
+    {
+      "stem": "corn_smut_google_0227",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\corn_smut_google_0227.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\corn_smut_google_0227.png"
+    },
+    {
+      "stem": "garlic_leaf_blight_4",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\garlic_leaf_blight_4.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\garlic_leaf_blight_4.png"
+    },
+    {
+      "stem": "tomato_bacterial_leaf_spot_78",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\tomato_bacterial_leaf_spot_78.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\tomato_bacterial_leaf_spot_78.png"
+    },
+    {
+      "stem": "lettuce_mosaic_virus_4",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\lettuce_mosaic_virus_4.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\lettuce_mosaic_virus_4.png"
+    },
+    {
+      "stem": "bean_mosaic_virus_google_0032",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\bean_mosaic_virus_google_0032.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\bean_mosaic_virus_google_0032.png"
+    },
+    {
+      "stem": "cabbage_alternaria_leaf_spot_google_0065",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\cabbage_alternaria_leaf_spot_google_0065.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\cabbage_alternaria_leaf_spot_google_0065.png"
+    },
+    {
+      "stem": "cucumber_powdery_mildew_56",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\cucumber_powdery_mildew_56.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\cucumber_powdery_mildew_56.png"
+    },
+    {
+      "stem": "cucumber_bacterial_wilt_google_0143",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\cucumber_bacterial_wilt_google_0143.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\cucumber_bacterial_wilt_google_0143.png"
+    },
+    {
+      "stem": "potato_early_blight_6",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\potato_early_blight_6.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\potato_early_blight_6.png"
+    },
+    {
+      "stem": "apple_rust_36",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\apple_rust_36.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\apple_rust_36.png"
+    },
+    {
+      "stem": "wheat_septoria_blotch_Google_0197",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\wheat_septoria_blotch_Google_0197.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\wheat_septoria_blotch_Google_0197.png"
+    },
+    {
+      "stem": "wheat_powdery_mildew_Bing_0059",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\wheat_powdery_mildew_Bing_0059.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\wheat_powdery_mildew_Bing_0059.png"
+    },
+    {
+      "stem": "grape_black_rot_google_0124",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\grape_black_rot_google_0124.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\grape_black_rot_google_0124.png"
+    },
+    {
+      "stem": "grape_leaf_spot_144",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\grape_leaf_spot_144.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\grape_leaf_spot_144.png"
+    },
+    {
+      "stem": "apple_scab_68",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\apple_scab_68.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\apple_scab_68.png"
+    },
+    {
+      "stem": "apple_rust_124",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\apple_rust_124.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\apple_rust_124.png"
+    },
+    {
+      "stem": "wheat_stripe_rust_Baidu_0024",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\val\\wheat_stripe_rust_Baidu_0024.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\val\\wheat_stripe_rust_Baidu_0024.png"
+    },
+    {
+      "stem": "cabbage_black_rot_Bing_0007",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\cabbage_black_rot_Bing_0007.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\cabbage_black_rot_Bing_0007.png"
+    },
+    {
+      "stem": "wheat_stripe_rust_Bing_0079",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\wheat_stripe_rust_Bing_0079.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\wheat_stripe_rust_Bing_0079.png"
+    },
+    {
+      "stem": "zucchini_yellow_mosaic_virus_google_0042",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\zucchini_yellow_mosaic_virus_google_0042.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\zucchini_yellow_mosaic_virus_google_0042.png"
+    },
+    {
+      "stem": "wheat_stripe_rust_Baidu_0129",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\wheat_stripe_rust_Baidu_0129.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\wheat_stripe_rust_Baidu_0129.png"
+    },
+    {
+      "stem": "banana_anthracnose_Baidu_0058",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\banana_anthracnose_Baidu_0058.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\banana_anthracnose_Baidu_0058.png"
+    },
+    {
+      "stem": "tobacco_brown_spot_Bing_0029",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\tobacco_brown_spot_Bing_0029.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\tobacco_brown_spot_Bing_0029.png"
+    },
+    {
+      "stem": "zucchini_yellow_mosaic_virus_90",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\zucchini_yellow_mosaic_virus_90.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\zucchini_yellow_mosaic_virus_90.png"
+    },
+    {
+      "stem": "wheat_stripe_rust_Bing_0139",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\wheat_stripe_rust_Bing_0139.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\wheat_stripe_rust_Bing_0139.png"
+    },
+    {
+      "stem": "cucumber_powdery_mildew_47",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\cucumber_powdery_mildew_47.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\cucumber_powdery_mildew_47.png"
+    },
+    {
+      "stem": "peach_anthracnose_Google_0016",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\peach_anthracnose_Google_0016.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\peach_anthracnose_Google_0016.png"
+    },
+    {
+      "stem": "cabbage_downy_mildew_Google_0165",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\val\\cabbage_downy_mildew_Google_0165.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\val\\cabbage_downy_mildew_Google_0165.png"
+    },
+    {
+      "stem": "grape_black_rot_google_0132",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\grape_black_rot_google_0132.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\grape_black_rot_google_0132.png"
+    },
+    {
+      "stem": "peach_leaf_curl_google_0117",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\peach_leaf_curl_google_0117.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\peach_leaf_curl_google_0117.png"
+    },
+    {
+      "stem": "potato_early_blight_60",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\potato_early_blight_60.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\potato_early_blight_60.png"
+    },
+    {
+      "stem": "soybean_mosaic_Bing_0050",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\soybean_mosaic_Bing_0050.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\soybean_mosaic_Bing_0050.png"
+    },
+    {
+      "stem": "zucchini_bacterial_wilt_Bing_0049",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\zucchini_bacterial_wilt_Bing_0049.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\zucchini_bacterial_wilt_Bing_0049.png"
+    },
+    {
+      "stem": "wheat_powdery_mildew_Baidu_0118",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\wheat_powdery_mildew_Baidu_0118.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\wheat_powdery_mildew_Baidu_0118.png"
+    },
+    {
+      "stem": "lettuce_mosaic_virus_5",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\lettuce_mosaic_virus_5.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\lettuce_mosaic_virus_5.png"
+    },
+    {
+      "stem": "potato_early_blight_68",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\potato_early_blight_68.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\potato_early_blight_68.png"
+    },
+    {
+      "stem": "plum_pocket_disease_google_0003",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\plum_pocket_disease_google_0003.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\plum_pocket_disease_google_0003.png"
+    },
+    {
+      "stem": "basil_downy_mildew_google_0091",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\basil_downy_mildew_google_0091.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\basil_downy_mildew_google_0091.png"
+    },
+    {
+      "stem": "lettuce_downy_mildew_184",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\lettuce_downy_mildew_184.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\lettuce_downy_mildew_184.png"
+    },
+    {
+      "stem": "squash_powdery_mildew_google_0010",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\squash_powdery_mildew_google_0010.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\squash_powdery_mildew_google_0010.png"
+    },
+    {
+      "stem": "citrus_canker_103",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\citrus_canker_103.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\citrus_canker_103.png"
+    },
+    {
+      "stem": "peach_leaf_curl_google_0112",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\peach_leaf_curl_google_0112.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\peach_leaf_curl_google_0112.png"
+    },
+    {
+      "stem": "cucumber_bacterial_wilt_12",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\cucumber_bacterial_wilt_12.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\cucumber_bacterial_wilt_12.png"
+    },
+    {
+      "stem": "tobacco_brown_spot_Bing_0046",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\tobacco_brown_spot_Bing_0046.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\tobacco_brown_spot_Bing_0046.png"
+    },
+    {
+      "stem": "eggplant_cercospora_leaf_spot_12",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\eggplant_cercospora_leaf_spot_12.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\eggplant_cercospora_leaf_spot_12.png"
+    },
+    {
+      "stem": "corn_northern_leaf_blight_40",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\corn_northern_leaf_blight_40.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\corn_northern_leaf_blight_40.png"
+    },
+    {
+      "stem": "rice_sheath_blight_google_0006",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\rice_sheath_blight_google_0006.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\rice_sheath_blight_google_0006.png"
+    },
+    {
+      "stem": "citrus_greening_disease_google_0316",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\citrus_greening_disease_google_0316.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\citrus_greening_disease_google_0316.png"
+    },
+    {
+      "stem": "wheat_septoria_blotch_blotch (8)",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\wheat_septoria_blotch_blotch (8).jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\wheat_septoria_blotch_blotch (8).png"
+    },
+    {
+      "stem": "peach_leaf_curl_google_0155",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\peach_leaf_curl_google_0155.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\peach_leaf_curl_google_0155.png"
+    },
+    {
+      "stem": "wheat_stripe_rust_Baidu_0094",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\wheat_stripe_rust_Baidu_0094.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\wheat_stripe_rust_Baidu_0094.png"
+    },
+    {
+      "stem": "peach_leaf_curl_google_0181",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\peach_leaf_curl_google_0181.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\peach_leaf_curl_google_0181.png"
+    },
+    {
+      "stem": "corn_gray_leaf_spot_google_0008",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\val\\corn_gray_leaf_spot_google_0008.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\val\\corn_gray_leaf_spot_google_0008.png"
+    },
+    {
+      "stem": "apple_scab_77",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\apple_scab_77.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\apple_scab_77.png"
+    },
+    {
+      "stem": "tomato_early_blight_193",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\tomato_early_blight_193.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\tomato_early_blight_193.png"
+    },
+    {
+      "stem": "basil_downy_mildew_google_0093",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\basil_downy_mildew_google_0093.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\basil_downy_mildew_google_0093.png"
+    },
+    {
+      "stem": "cucumber_powdery_mildew_134",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\cucumber_powdery_mildew_134.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\cucumber_powdery_mildew_134.png"
+    },
+    {
+      "stem": "soybean_mosaic_Bing_0124",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\soybean_mosaic_Bing_0124.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\soybean_mosaic_Bing_0124.png"
+    },
+    {
+      "stem": "squash_powdery_mildew_6",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\squash_powdery_mildew_6.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\squash_powdery_mildew_6.png"
+    },
+    {
+      "stem": "plum_bacterial_spot_Google_0057",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\plum_bacterial_spot_Google_0057.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\plum_bacterial_spot_Google_0057.png"
+    },
+    {
+      "stem": "rice_blast_146",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\rice_blast_146.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\rice_blast_146.png"
+    },
+    {
+      "stem": "cabbage_alternaria_leaf_spot_google_0013",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\cabbage_alternaria_leaf_spot_google_0013.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\cabbage_alternaria_leaf_spot_google_0013.png"
+    },
+    {
+      "stem": "blueberry_mummy_berry_Bing_0199",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\blueberry_mummy_berry_Bing_0199.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\blueberry_mummy_berry_Bing_0199.png"
+    },
+    {
+      "stem": "wheat_powdery_mildew_Baidu_0067",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\wheat_powdery_mildew_Baidu_0067.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\wheat_powdery_mildew_Baidu_0067.png"
+    },
+    {
+      "stem": "wheat_head_scab_Baidu_0468",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\wheat_head_scab_Baidu_0468.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\wheat_head_scab_Baidu_0468.png"
+    },
+    {
+      "stem": "coffee_leaf_rust_google_0141",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\coffee_leaf_rust_google_0141.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\coffee_leaf_rust_google_0141.png"
+    },
+    {
+      "stem": "wheat_powdery_mildew_Baidu_0217",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\wheat_powdery_mildew_Baidu_0217.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\wheat_powdery_mildew_Baidu_0217.png"
+    },
+    {
+      "stem": "wheat_head_scab_Bing_0083",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\wheat_head_scab_Bing_0083.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\wheat_head_scab_Bing_0083.png"
+    },
+    {
+      "stem": "apple_scab_google_0072",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\apple_scab_google_0072.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\apple_scab_google_0072.png"
+    },
+    {
+      "stem": "wheat_loose_smut_Bing_0004",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\wheat_loose_smut_Bing_0004.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\wheat_loose_smut_Bing_0004.png"
+    },
+    {
+      "stem": "wheat_head_scab_Google_0327",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\val\\wheat_head_scab_Google_0327.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\val\\wheat_head_scab_Google_0327.png"
+    },
+    {
+      "stem": "cucumber_angular_leaf_spot_197",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\cucumber_angular_leaf_spot_197.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\cucumber_angular_leaf_spot_197.png"
+    },
+    {
+      "stem": "wheat_loose_smut_Bing_0023",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\wheat_loose_smut_Bing_0023.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\wheat_loose_smut_Bing_0023.png"
+    },
+    {
+      "stem": "maple_tar_spot_google_0089",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\maple_tar_spot_google_0089.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\maple_tar_spot_google_0089.png"
+    },
+    {
+      "stem": "corn_smut_google_0074",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\corn_smut_google_0074.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\corn_smut_google_0074.png"
+    },
+    {
+      "stem": "cabbage_downy_mildew_Bing_0154",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\cabbage_downy_mildew_Bing_0154.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\cabbage_downy_mildew_Bing_0154.png"
+    },
+    {
+      "stem": "wheat_head_scab_Bing_0134",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\wheat_head_scab_Bing_0134.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\wheat_head_scab_Bing_0134.png"
+    },
+    {
+      "stem": "bean_mosaic_virus_google_0040",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\bean_mosaic_virus_google_0040.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\bean_mosaic_virus_google_0040.png"
+    },
+    {
+      "stem": "rice_sheath_blight_51",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\rice_sheath_blight_51.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\rice_sheath_blight_51.png"
+    },
+    {
+      "stem": "zucchini_powdery_mildew_Bing_0054",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\zucchini_powdery_mildew_Bing_0054.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\zucchini_powdery_mildew_Bing_0054.png"
+    },
+    {
+      "stem": "tomato_yellow_leaf_curl_virus_162",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\tomato_yellow_leaf_curl_virus_162.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\tomato_yellow_leaf_curl_virus_162.png"
+    },
+    {
+      "stem": "garlic_rust_189",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\garlic_rust_189.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\garlic_rust_189.png"
+    },
+    {
+      "stem": "citrus_canker_239",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\val\\citrus_canker_239.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\val\\citrus_canker_239.png"
+    },
+    {
+      "stem": "wheat_head_scab_Baidu_0253",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\wheat_head_scab_Baidu_0253.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\wheat_head_scab_Baidu_0253.png"
+    },
+    {
+      "stem": "wheat_stripe_rust_Bing_0247",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\val\\wheat_stripe_rust_Bing_0247.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\val\\wheat_stripe_rust_Bing_0247.png"
+    },
+    {
+      "stem": "corn_rust_58",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\corn_rust_58.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\corn_rust_58.png"
+    },
+    {
+      "stem": "tomato_early_blight_google_0353",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\tomato_early_blight_google_0353.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\tomato_early_blight_google_0353.png"
+    },
+    {
+      "stem": "soybean_brown_spot_Baidu_0080",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\soybean_brown_spot_Baidu_0080.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\soybean_brown_spot_Baidu_0080.png"
+    },
+    {
+      "stem": "citrus_canker_253",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\citrus_canker_253.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\citrus_canker_253.png"
+    },
+    {
+      "stem": "wheat_head_scab_Google_0033",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\wheat_head_scab_Google_0033.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\wheat_head_scab_Google_0033.png"
+    },
+    {
+      "stem": "citrus_canker_257",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\citrus_canker_257.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\citrus_canker_257.png"
+    },
+    {
+      "stem": "corn_northern_leaf_blight_12",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\corn_northern_leaf_blight_12.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\corn_northern_leaf_blight_12.png"
+    },
+    {
+      "stem": "citrus_canker_google_0032",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\citrus_canker_google_0032.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\citrus_canker_google_0032.png"
+    },
+    {
+      "stem": "citrus_canker_187",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\citrus_canker_187.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\citrus_canker_187.png"
+    },
+    {
+      "stem": "apple_scab_1",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\apple_scab_1.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\apple_scab_1.png"
+    },
+    {
+      "stem": "garlic_leaf_blight_42",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\garlic_leaf_blight_42.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\garlic_leaf_blight_42.png"
+    },
+    {
+      "stem": "citrus_canker_298",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\citrus_canker_298.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\citrus_canker_298.png"
+    },
+    {
+      "stem": "citrus_canker_google_0174",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\citrus_canker_google_0174.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\citrus_canker_google_0174.png"
+    },
+    {
+      "stem": "wheat_loose_smut_Baidu_0015",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\val\\wheat_loose_smut_Baidu_0015.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\val\\wheat_loose_smut_Baidu_0015.png"
+    },
+    {
+      "stem": "cucumber_bacterial_wilt_google_0013",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\val\\cucumber_bacterial_wilt_google_0013.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\val\\cucumber_bacterial_wilt_google_0013.png"
+    },
+    {
+      "stem": "corn_northern_leaf_blight_104",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\corn_northern_leaf_blight_104.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\corn_northern_leaf_blight_104.png"
+    },
+    {
+      "stem": "cucumber_bacterial_wilt_313",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\cucumber_bacterial_wilt_313.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\cucumber_bacterial_wilt_313.png"
+    },
+    {
+      "stem": "tomato_yellow_leaf_curl_virus_31",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\tomato_yellow_leaf_curl_virus_31.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\tomato_yellow_leaf_curl_virus_31.png"
+    },
+    {
+      "stem": "citrus_greening_disease_88",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\citrus_greening_disease_88.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\citrus_greening_disease_88.png"
+    },
+    {
+      "stem": "wheat_stripe_rust_Baidu_0401",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\wheat_stripe_rust_Baidu_0401.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\wheat_stripe_rust_Baidu_0401.png"
+    },
+    {
+      "stem": "cabbage_black_rot_Google_0050",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\cabbage_black_rot_Google_0050.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\cabbage_black_rot_Google_0050.png"
+    },
+    {
+      "stem": "tomato_leaf_mold_227",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\tomato_leaf_mold_227.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\tomato_leaf_mold_227.png"
+    },
+    {
+      "stem": "tobacco_blue_mold_Bing_0119",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\tobacco_blue_mold_Bing_0119.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\tobacco_blue_mold_Bing_0119.png"
+    },
+    {
+      "stem": "bell_pepper_blossom_end_rot_Google_0327",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\bell_pepper_blossom_end_rot_Google_0327.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\bell_pepper_blossom_end_rot_Google_0327.png"
+    },
+    {
+      "stem": "coffee_berry_blotch_Google_0030",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\coffee_berry_blotch_Google_0030.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\coffee_berry_blotch_Google_0030.png"
+    },
+    {
+      "stem": "soybean_mosaic_Baidu_0046",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\val\\soybean_mosaic_Baidu_0046.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\val\\soybean_mosaic_Baidu_0046.png"
+    },
+    {
+      "stem": "cherry_leaf_spot_google_0060",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\val\\cherry_leaf_spot_google_0060.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\val\\cherry_leaf_spot_google_0060.png"
+    },
+    {
+      "stem": "wheat_bacterial_leaf_streak_(black_chaff)_Bing_0010",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\wheat_bacterial_leaf_streak_(black_chaff)_Bing_0010.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\wheat_bacterial_leaf_streak_(black_chaff)_Bing_0010.png"
+    },
+    {
+      "stem": "wheat_loose_smut_Google_0062",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\wheat_loose_smut_Google_0062.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\wheat_loose_smut_Google_0062.png"
+    },
+    {
+      "stem": "citrus_canker_google_0071",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\citrus_canker_google_0071.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\citrus_canker_google_0071.png"
+    },
+    {
+      "stem": "wheat_powdery_mildew_Baidu_0089",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\wheat_powdery_mildew_Baidu_0089.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\wheat_powdery_mildew_Baidu_0089.png"
+    },
+    {
+      "stem": "tomato_early_blight_google_0123",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\tomato_early_blight_google_0123.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\tomato_early_blight_google_0123.png"
+    },
+    {
+      "stem": "tomato_late_blight_122",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\tomato_late_blight_122.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\tomato_late_blight_122.png"
+    },
+    {
+      "stem": "zucchini_yellow_mosaic_virus_google_0011",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\val\\zucchini_yellow_mosaic_virus_google_0011.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\val\\zucchini_yellow_mosaic_virus_google_0011.png"
+    },
+    {
+      "stem": "tomato_early_blight_google_0160",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\val\\tomato_early_blight_google_0160.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\val\\tomato_early_blight_google_0160.png"
+    },
+    {
+      "stem": "grape_downy_mildew_google_0032",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\grape_downy_mildew_google_0032.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\grape_downy_mildew_google_0032.png"
+    },
+    {
+      "stem": "wheat_head_scab_Google_0253",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\wheat_head_scab_Google_0253.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\wheat_head_scab_Google_0253.png"
+    },
+    {
+      "stem": "tomato_leaf_mold_48",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\tomato_leaf_mold_48.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\tomato_leaf_mold_48.png"
+    },
+    {
+      "stem": "grape_downy_mildew_215",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\grape_downy_mildew_215.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\grape_downy_mildew_215.png"
+    },
+    {
+      "stem": "soybean_rust_Bing_0106",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\soybean_rust_Bing_0106.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\soybean_rust_Bing_0106.png"
+    },
+    {
+      "stem": "corn_northern_leaf_blight_17",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\val\\corn_northern_leaf_blight_17.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\val\\corn_northern_leaf_blight_17.png"
+    },
+    {
+      "stem": "soybean_downy_mildew_Bing_0075",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\soybean_downy_mildew_Bing_0075.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\soybean_downy_mildew_Bing_0075.png"
+    },
+    {
+      "stem": "tomato_bacterial_leaf_spot_122",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\tomato_bacterial_leaf_spot_122.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\tomato_bacterial_leaf_spot_122.png"
+    },
+    {
+      "stem": "peach_leaf_curl_google_0085",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\peach_leaf_curl_google_0085.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\peach_leaf_curl_google_0085.png"
+    }
+  ],
+  "val": [
+    {
+      "stem": "apple_scab_google_0142",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\apple_scab_google_0142.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\apple_scab_google_0142.png"
+    },
+    {
+      "stem": "wheat_septoria_blotch_google_septoria (13)",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\wheat_septoria_blotch_google_septoria (13).jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\wheat_septoria_blotch_google_septoria (13).png"
+    },
+    {
+      "stem": "apple_scab_google_0188",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\apple_scab_google_0188.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\apple_scab_google_0188.png"
+    },
+    {
+      "stem": "cauliflower_alternaria_leaf_spot_google_0021",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\cauliflower_alternaria_leaf_spot_google_0021.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\cauliflower_alternaria_leaf_spot_google_0021.png"
+    },
+    {
+      "stem": "tomato_yellow_leaf_curl_virus_44",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\tomato_yellow_leaf_curl_virus_44.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\tomato_yellow_leaf_curl_virus_44.png"
+    },
+    {
+      "stem": "apple_scab_google_0037",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\apple_scab_google_0037.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\apple_scab_google_0037.png"
+    },
+    {
+      "stem": "grape_downy_mildew_49",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\grape_downy_mildew_49.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\grape_downy_mildew_49.png"
+    },
+    {
+      "stem": "banana_black_leaf_streak_banana black sigatoka (106)",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\banana_black_leaf_streak_banana black sigatoka (106).jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\banana_black_leaf_streak_banana black sigatoka (106).png"
+    },
+    {
+      "stem": "bell_pepper_powdery_mildew_Bing_0033",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\bell_pepper_powdery_mildew_Bing_0033.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\bell_pepper_powdery_mildew_Bing_0033.png"
+    },
+    {
+      "stem": "cabbage_downy_mildew_Bing_0029",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\cabbage_downy_mildew_Bing_0029.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\cabbage_downy_mildew_Bing_0029.png"
+    },
+    {
+      "stem": "soybean_frog_eye_leaf_spot_Google_0312",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\soybean_frog_eye_leaf_spot_Google_0312.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\soybean_frog_eye_leaf_spot_Google_0312.png"
+    },
+    {
+      "stem": "grape_leaf_spot_google_0016",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\grape_leaf_spot_google_0016.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\grape_leaf_spot_google_0016.png"
+    },
+    {
+      "stem": "wheat_loose_smut_Bing_0014",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\val\\wheat_loose_smut_Bing_0014.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\val\\wheat_loose_smut_Bing_0014.png"
+    },
+    {
+      "stem": "tomato_yellow_leaf_curl_virus_21",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\tomato_yellow_leaf_curl_virus_21.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\tomato_yellow_leaf_curl_virus_21.png"
+    },
+    {
+      "stem": "wheat_powdery_mildew_Baidu_0027",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\wheat_powdery_mildew_Baidu_0027.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\wheat_powdery_mildew_Baidu_0027.png"
+    },
+    {
+      "stem": "zucchini_powdery_mildew_Google_0118",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\zucchini_powdery_mildew_Google_0118.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\zucchini_powdery_mildew_Google_0118.png"
+    },
+    {
+      "stem": "plum_pox_virus_Bing_0052",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\plum_pox_virus_Bing_0052.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\plum_pox_virus_Bing_0052.png"
+    },
+    {
+      "stem": "tomato_septoria_leaf_spot_google_0032",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\val\\tomato_septoria_leaf_spot_google_0032.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\val\\tomato_septoria_leaf_spot_google_0032.png"
+    },
+    {
+      "stem": "wheat_septoria_blotch_blotch (25)",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\wheat_septoria_blotch_blotch (25).jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\wheat_septoria_blotch_blotch (25).png"
+    },
+    {
+      "stem": "wheat_powdery_mildew_Bing_0109",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\wheat_powdery_mildew_Bing_0109.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\wheat_powdery_mildew_Bing_0109.png"
+    },
+    {
+      "stem": "wheat_bacterial_leaf_streak_(black_chaff)_Google_0142",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\wheat_bacterial_leaf_streak_(black_chaff)_Google_0142.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\wheat_bacterial_leaf_streak_(black_chaff)_Google_0142.png"
+    },
+    {
+      "stem": "rice_blast_google_0012",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\rice_blast_google_0012.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\rice_blast_google_0012.png"
+    },
+    {
+      "stem": "bean_mosaic_virus_6",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\bean_mosaic_virus_6.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\bean_mosaic_virus_6.png"
+    },
+    {
+      "stem": "tomato_septoria_leaf_spot_google_0005",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\tomato_septoria_leaf_spot_google_0005.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\tomato_septoria_leaf_spot_google_0005.png"
+    },
+    {
+      "stem": "squash_powdery_mildew_61",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\val\\squash_powdery_mildew_61.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\val\\squash_powdery_mildew_61.png"
+    },
+    {
+      "stem": "citrus_canker_329",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\citrus_canker_329.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\citrus_canker_329.png"
+    },
+    {
+      "stem": "corn_smut_google_0223",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\corn_smut_google_0223.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\corn_smut_google_0223.png"
+    },
+    {
+      "stem": "banana_black_leaf_streak_banana black sigatoka (77)",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\banana_black_leaf_streak_banana black sigatoka (77).jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\banana_black_leaf_streak_banana black sigatoka (77).png"
+    },
+    {
+      "stem": "cucumber_angular_leaf_spot_291",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\cucumber_angular_leaf_spot_291.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\cucumber_angular_leaf_spot_291.png"
+    },
+    {
+      "stem": "apple_mosaic_virus_google_0106",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\val\\apple_mosaic_virus_google_0106.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\val\\apple_mosaic_virus_google_0106.png"
+    },
+    {
+      "stem": "citrus_canker_93",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\citrus_canker_93.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\citrus_canker_93.png"
+    },
+    {
+      "stem": "cucumber_bacterial_wilt_google_0037",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\cucumber_bacterial_wilt_google_0037.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\cucumber_bacterial_wilt_google_0037.png"
+    },
+    {
+      "stem": "cucumber_powdery_mildew_62",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\cucumber_powdery_mildew_62.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\cucumber_powdery_mildew_62.png"
+    },
+    {
+      "stem": "zucchini_powdery_mildew_Bing_0357",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\zucchini_powdery_mildew_Bing_0357.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\zucchini_powdery_mildew_Bing_0357.png"
+    },
+    {
+      "stem": "apple_scab_google_0184",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\apple_scab_google_0184.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\apple_scab_google_0184.png"
+    },
+    {
+      "stem": "grape_downy_mildew_google_0256",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\grape_downy_mildew_google_0256.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\grape_downy_mildew_google_0256.png"
+    },
+    {
+      "stem": "wheat_stripe_rust_Baidu_0455",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\wheat_stripe_rust_Baidu_0455.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\wheat_stripe_rust_Baidu_0455.png"
+    },
+    {
+      "stem": "wheat_loose_smut_Google_0377",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\wheat_loose_smut_Google_0377.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\wheat_loose_smut_Google_0377.png"
+    },
+    {
+      "stem": "potato_early_blight_google_0005",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\potato_early_blight_google_0005.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\potato_early_blight_google_0005.png"
+    },
+    {
+      "stem": "tobacco_frogeye_leaf_spot_Bing_0024",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\tobacco_frogeye_leaf_spot_Bing_0024.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\tobacco_frogeye_leaf_spot_Bing_0024.png"
+    },
+    {
+      "stem": "tomato_bacterial_leaf_spot_google_0051",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\tomato_bacterial_leaf_spot_google_0051.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\tomato_bacterial_leaf_spot_google_0051.png"
+    },
+    {
+      "stem": "plum_pocket_disease_google_0059",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\plum_pocket_disease_google_0059.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\plum_pocket_disease_google_0059.png"
+    },
+    {
+      "stem": "wheat_septoria_blotch_blotch (127)",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\wheat_septoria_blotch_blotch (127).jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\wheat_septoria_blotch_blotch (127).png"
+    },
+    {
+      "stem": "banana_black_leaf_streak_banana black sigatoka (8)",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\banana_black_leaf_streak_banana black sigatoka (8).jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\banana_black_leaf_streak_banana black sigatoka (8).png"
+    },
+    {
+      "stem": "cucumber_angular_leaf_spot_65",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\cucumber_angular_leaf_spot_65.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\cucumber_angular_leaf_spot_65.png"
+    },
+    {
+      "stem": "peach_leaf_curl_google_0108",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\peach_leaf_curl_google_0108.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\peach_leaf_curl_google_0108.png"
+    },
+    {
+      "stem": "wheat_loose_smut_Baidu_0003",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\wheat_loose_smut_Baidu_0003.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\wheat_loose_smut_Baidu_0003.png"
+    },
+    {
+      "stem": "squash_powdery_mildew_google_0354",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\squash_powdery_mildew_google_0354.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\squash_powdery_mildew_google_0354.png"
+    },
+    {
+      "stem": "squash_powdery_mildew_google_0122",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\squash_powdery_mildew_google_0122.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\squash_powdery_mildew_google_0122.png"
+    },
+    {
+      "stem": "carrot_alternaria_leaf_blight_Bing_0003",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\carrot_alternaria_leaf_blight_Bing_0003.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\carrot_alternaria_leaf_blight_Bing_0003.png"
+    }
+  ],
+  "test": [
+    {
+      "stem": "garlic_rust_103",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\garlic_rust_103.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\garlic_rust_103.png"
+    },
+    {
+      "stem": "tomato_septoria_leaf_spot_google_0208",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\tomato_septoria_leaf_spot_google_0208.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\tomato_septoria_leaf_spot_google_0208.png"
+    },
+    {
+      "stem": "potato_early_blight_google_0215",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\potato_early_blight_google_0215.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\potato_early_blight_google_0215.png"
+    },
+    {
+      "stem": "bell_pepper_bacterial_spot_Bing_0079",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\bell_pepper_bacterial_spot_Bing_0079.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\bell_pepper_bacterial_spot_Bing_0079.png"
+    },
+    {
+      "stem": "citrus_canker_43",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\citrus_canker_43.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\citrus_canker_43.png"
+    },
+    {
+      "stem": "banana_cordana_leaf_spot_Bing_0054",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\val\\banana_cordana_leaf_spot_Bing_0054.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\val\\banana_cordana_leaf_spot_Bing_0054.png"
+    },
+    {
+      "stem": "wheat_septoria_blotch_Google_0034",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\wheat_septoria_blotch_Google_0034.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\wheat_septoria_blotch_Google_0034.png"
+    },
+    {
+      "stem": "potato_late_blight_google_0011",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\potato_late_blight_google_0011.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\potato_late_blight_google_0011.png"
+    },
+    {
+      "stem": "blueberry_rust_google_0099",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\val\\blueberry_rust_google_0099.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\val\\blueberry_rust_google_0099.png"
+    },
+    {
+      "stem": "blueberry_scorch_Bing_0042",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\blueberry_scorch_Bing_0042.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\blueberry_scorch_Bing_0042.png"
+    },
+    {
+      "stem": "banana_anthracnose_Bing_0072",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\banana_anthracnose_Bing_0072.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\banana_anthracnose_Bing_0072.png"
+    },
+    {
+      "stem": "tobacco_frogeye_leaf_spot_Bing_0053",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\tobacco_frogeye_leaf_spot_Bing_0053.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\tobacco_frogeye_leaf_spot_Bing_0053.png"
+    },
+    {
+      "stem": "soybean_frog_eye_leaf_spot_Google_0077",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\soybean_frog_eye_leaf_spot_Google_0077.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\soybean_frog_eye_leaf_spot_Google_0077.png"
+    },
+    {
+      "stem": "raspberry_yellow_rust_Google_0014",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\raspberry_yellow_rust_Google_0014.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\raspberry_yellow_rust_Google_0014.png"
+    },
+    {
+      "stem": "banana_bunchy_top_Bing_0081",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\banana_bunchy_top_Bing_0081.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\banana_bunchy_top_Bing_0081.png"
+    },
+    {
+      "stem": "lettuce_mosaic_virus_48",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\lettuce_mosaic_virus_48.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\lettuce_mosaic_virus_48.png"
+    },
+    {
+      "stem": "eggplant_phomopsis_fruit_rot_Bing_0022",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\eggplant_phomopsis_fruit_rot_Bing_0022.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\eggplant_phomopsis_fruit_rot_Bing_0022.png"
+    },
+    {
+      "stem": "banana_black_leaf_streak_banana black sigatoka (42)",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\banana_black_leaf_streak_banana black sigatoka (42).jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\banana_black_leaf_streak_banana black sigatoka (42).png"
+    },
+    {
+      "stem": "bean_rust_google_0103",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\bean_rust_google_0103.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\bean_rust_google_0103.png"
+    },
+    {
+      "stem": "grape_leaf_spot_9",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\grape_leaf_spot_9.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\grape_leaf_spot_9.png"
+    },
+    {
+      "stem": "citrus_canker_81",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\citrus_canker_81.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\citrus_canker_81.png"
+    },
+    {
+      "stem": "banana_anthracnose_Bing_0000",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\val\\banana_anthracnose_Bing_0000.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\val\\banana_anthracnose_Bing_0000.png"
+    },
+    {
+      "stem": "cabbage_downy_mildew_Bing_0107",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\cabbage_downy_mildew_Bing_0107.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\cabbage_downy_mildew_Bing_0107.png"
+    },
+    {
+      "stem": "corn_smut_google_0101",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\corn_smut_google_0101.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\corn_smut_google_0101.png"
+    },
+    {
+      "stem": "grape_black_rot_google_0018",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\grape_black_rot_google_0018.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\grape_black_rot_google_0018.png"
+    },
+    {
+      "stem": "grape_leaf_spot_google_0030",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\val\\grape_leaf_spot_google_0030.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\val\\grape_leaf_spot_google_0030.png"
+    },
+    {
+      "stem": "grape_downy_mildew_google_0219",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\grape_downy_mildew_google_0219.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\grape_downy_mildew_google_0219.png"
+    },
+    {
+      "stem": "coffee_leaf_rust_171",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\coffee_leaf_rust_171.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\coffee_leaf_rust_171.png"
+    },
+    {
+      "stem": "raspberry_leaf_spot_Bing_0108",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\raspberry_leaf_spot_Bing_0108.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\raspberry_leaf_spot_Bing_0108.png"
+    },
+    {
+      "stem": "apple_mosaic_virus_7",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\apple_mosaic_virus_7.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\apple_mosaic_virus_7.png"
+    },
+    {
+      "stem": "bean_mosaic_virus_200",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\bean_mosaic_virus_200.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\bean_mosaic_virus_200.png"
+    },
+    {
+      "stem": "lettuce_mosaic_virus_16",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\lettuce_mosaic_virus_16.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\lettuce_mosaic_virus_16.png"
+    },
+    {
+      "stem": "tomato_mosaic_virus_google_0204",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\val\\tomato_mosaic_virus_google_0204.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\val\\tomato_mosaic_virus_google_0204.png"
+    },
+    {
+      "stem": "soybean_mosaic_Bing_0105",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\soybean_mosaic_Bing_0105.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\soybean_mosaic_Bing_0105.png"
+    },
+    {
+      "stem": "wheat_loose_smut_Google_0037",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\wheat_loose_smut_Google_0037.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\wheat_loose_smut_Google_0037.png"
+    },
+    {
+      "stem": "tomato_bacterial_leaf_spot_79",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\val\\tomato_bacterial_leaf_spot_79.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\val\\tomato_bacterial_leaf_spot_79.png"
+    },
+    {
+      "stem": "coffee_leaf_rust_google_0085",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\coffee_leaf_rust_google_0085.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\coffee_leaf_rust_google_0085.png"
+    },
+    {
+      "stem": "potato_early_blight_75",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\potato_early_blight_75.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\potato_early_blight_75.png"
+    },
+    {
+      "stem": "banana_anthracnose_Bing_0300",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\banana_anthracnose_Bing_0300.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\banana_anthracnose_Bing_0300.png"
+    },
+    {
+      "stem": "apple_scab_google_0209",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\apple_scab_google_0209.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\apple_scab_google_0209.png"
+    },
+    {
+      "stem": "coffee_berry_blotch_Bing_0025",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\coffee_berry_blotch_Bing_0025.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\coffee_berry_blotch_Bing_0025.png"
+    },
+    {
+      "stem": "bell_pepper_blossom_end_rot_Bing_0088",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\bell_pepper_blossom_end_rot_Bing_0088.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\bell_pepper_blossom_end_rot_Bing_0088.png"
+    },
+    {
+      "stem": "wheat_powdery_mildew_Baidu_0049",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\wheat_powdery_mildew_Baidu_0049.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\wheat_powdery_mildew_Baidu_0049.png"
+    },
+    {
+      "stem": "tomato_early_blight_39",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\tomato_early_blight_39.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\tomato_early_blight_39.png"
+    },
+    {
+      "stem": "apple_mosaic_virus_google_0026",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\apple_mosaic_virus_google_0026.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\apple_mosaic_virus_google_0026.png"
+    },
+    {
+      "stem": "corn_gray_leaf_spot_google_0067",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\train\\corn_gray_leaf_spot_google_0067.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\train\\corn_gray_leaf_spot_google_0067.png"
+    },
+    {
+      "stem": "wheat_stem_rust_Bing_0002",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\wheat_stem_rust_Bing_0002.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\wheat_stem_rust_Bing_0002.png"
+    },
+    {
+      "stem": "cucumber_angular_leaf_spot_68",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\val\\cucumber_angular_leaf_spot_68.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\val\\cucumber_angular_leaf_spot_68.png"
+    },
+    {
+      "stem": "citrus_canker_17",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\val\\citrus_canker_17.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\val\\citrus_canker_17.png"
+    },
+    {
+      "stem": "coffee_leaf_rust_google_0246",
+      "image_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\images\\test\\coffee_leaf_rust_google_0246.jpg",
+      "mask_path": "C:\\Users\\Admin\\.gemini\\antigravity\\scratch\\crop_stress_system\\backend\\data\\raw\\plantseg\\annotations\\test\\coffee_leaf_rust_google_0246.png"
+    }
+  ]
+}

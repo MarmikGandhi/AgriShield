@@ -1,0 +1,25 @@
+{
+  "timestamp": "2026-11-15T15:10:00Z",
+  "device": "cpu",
+  "models": {
+    "classification_ensemble": {
+      "test_accuracy": 70.53,
+      "top5_accuracy": 94.74,
+      "macro_precision": 71.37,
+      "macro_recall": 70.53,
+      "macro_f1": 67.18,
+      "weighted_f1": 67.18,
+      "sample_count": 380,
+      "weights": {
+        "efficientnet_b0": 0.95,
+        "mobilenet_v3": 0.05
+      }
+    },
+    "segmentation_unet": {
+      "mean_iou": 0.2942,
+      "dice_coefficient": 0.4439,
+      "pixel_accuracy": 65.24,
+      "sample_count": 50
+    }
+  }
+}

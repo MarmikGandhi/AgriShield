@@ -1,0 +1,240 @@
+================================================================================
+AGRISHIELD AI — COMPLETE PROJECT DIRECTORY AND FILE STRUCTURE AUDIT
+================================================================================
+Generated on: 2026-11-15 18:25:00 IST
+Project Root: C:\Users\Admin\.gemini\antigravity\scratch\crop_stress_system\
+
+--------------------------------------------------------------------------------
+1. TOP-LEVEL DIRECTORY TREE
+--------------------------------------------------------------------------------
+crop_stress_system/
+├── .env.example                            [Template environment configuration]
+├── docker-compose.yml                      [Multi-container orchestration definition]
+├── README.md                               [Project documentation and user manual]
+│
+├── backend/                                [FastAPI, PyTorch, and Data Services]
+│   ├── Dockerfile                          [Production container build recipe]
+│   ├── requirements.txt                    [Python package dependency definitions]
+│   ├── app/                                [FastAPI application source modules]
+│   │   ├── main.py                         [Application entrypoint & router mounts]
+│   │   ├── ai/                             [Computer vision and neural inference]
+│   │   │   ├── gradcam.py                  [Grad-CAM explainability implementation]
+│   │   │   ├── models.py                   [PyTorch model definitions: EffNet, MobNet, UNet]
+│   │   │   ├── pipeline.py                 [Unified 4-stage inference coordinator]
+│   │   │   ├── quality_guard.py            [OpenCV heuristic & blur/exposure guard]
+│   │   │   └── severity_estimator.py       [Empirical canopy loss and lesion cluster bounding boxes]
+│   │   ├── api/                            [REST route controllers]
+│   │   │   ├── deps.py                     [Authentication and database dependencies]
+│   │   │   └── v1/                         [Version 1 API endpoint routers]
+│   │   │       ├── agronomist.py           [Specialist triage & advisory endpoints]
+│   │   │       ├── ai.py                   [Model status & inspection endpoints]
+│   │   │       ├── auth.py                 [Farmer & agronomist JWT authentication]
+│   │   │       ├── chat.py                 [Kisan Bot RAG conversational endpoint]
+│   │   │       ├── dashboard.py            [Aggregated farmer analytics summary]
+│   │   │       ├── datasets.py             [Dataset inventory & integrity report]
+│   │   │       ├── expert.py               [Farmer inquiry submission & thread view]
+│   │   │       ├── market.py               [Gujarat APMC Mandi commodity rates]
+│   │   │       ├── notifications.py        [Multi-channel alert feed & read toggle]
+│   │   │       ├── scans.py                [Full pipeline scan upload & history]
+│   │   │       └── weather.py              [Microclimate disease risk forecasting]
+│   │   ├── core/                           [Configuration & Security]
+│   │   │   ├── config.py                   [Pydantic settings, paths, API keys]
+│   │   │   └── security.py                 [Bcrypt password hashing & JWT token encoder]
+│   │   ├── database/                       [Relational database persistence]
+│   │   │   ├── models.py                   [SQLAlchemy ORM models: User, Scan, Alert, etc.]
+│   │   │   └── session.py                  [Database engine & SessionLocal dependency]
+│   │   ├── schemas/                        [Pydantic data contracts]
+│   │   │   └── schemas.py                  [Request/response validation schemas]
+│   │   └── services/                       [Domain services & business logic]
+│   │       ├── kisan_bot_service.py        [ICAR/AAU agronomic RAG knowledge engine]
+│   │       ├── market_service.py           [Gujarat APMC price engine]
+│   │       ├── notification_service.py     [In-App, SMTP TLS, Twilio SMS dispatcher]
+│   │       └── weather_service.py          [OpenWeather + ICAR meteorological rules]
+│   ├── data/                               [Data storage, uploads, and manifests]
+│   │   ├── crop_health.db                  [SQLite active relational database]
+│   │   ├── manifests/                      [Inventory and split metadata]
+│   │   │   ├── class_mapping.json          [38 canonical classes + Gujarati/Hindi names]
+│   │   │   ├── classification_fast_train.json [Fast subset train manifest (380 samples)]
+│   │   │   ├── classification_fast_val.json   [Fast subset val manifest (380 samples)]
+│   │   │   ├── classification_train.json      [Full train manifest (76,009 samples)]
+│   │   │   ├── classification_val.json        [Full val manifest (16,276 samples)]
+│   │   │   ├── classification_test.json       [Full test manifest (16,322 samples)]
+│   │   │   ├── dataset_inventory.json         [Initial raw incoming archive inventory]
+│   │   │   ├── dataset_verification.json      [Verification audit of 4 datasets]
+│   │   │   ├── segmentation_fast_manifest.json [Fast subset PlantSeg pairs (300 pairs)]
+│   │   │   └── segmentation_manifest.json     [Full PlantSeg 1:1 image-mask pairs (7,774 pairs)]
+│   │   ├── raw/                            [Extracted authentic datasets]
+│   │   │   ├── plantvillage/               [54,305 color leaf images across 38 classes]
+│   │   │   ├── plantdoc/                   [2,573 field images across 29 classes]
+│   │   │   ├── plantseg/                   [7,774 image-mask pairs (Nature Sci Data 2025)]
+│   │   │   └── plantwild/                  [18,542 wild crop photos across 89 classes]
+│   │   ├── static/                         [Generated Grad-CAM and U-Net visualizations]
+│   │   └── uploads/                        [Uploaded user crop leaf photos]
+│   ├── models/                             [Trained PyTorch checkpoints and logs]
+│   │   ├── evaluation_summary.json         [Independent evaluation metrics on test sets]
+│   │   ├── classification/
+│   │   │   ├── efficientnet_b0_best.pth    [18.15 MB, 68.42% val accuracy checkpoint]
+│   │   │   ├── efficientnet_training_log.json [Epoch loss, val accuracy, and timing]
+│   │   │   ├── ensemble_config.json        [Weights: 0.95 EffNet + 0.05 MobNet -> 70.53% val acc]
+│   │   │   ├── mobilenet_v3_best.pth       [6.07 MB, 55.53% val accuracy checkpoint]
+│   │   │   └── mobilenet_training_log.json [Epoch loss, val accuracy, and timing]
+│   │   └── segmentation/
+│   │       ├── unet_plantseg_best.pth      [29.67 MB, Dice=0.4439, IoU=0.2942 checkpoint]
+│   │       └── segmentation_training_log.json [Epoch loss, Dice, IoU, and timing]
+│   ├── scripts/                            [Dataset preparation & training pipelines]
+│   │   ├── download_datasets.py            [Dataset downloader with local detection]
+│   │   ├── evaluate_models.py              [Multi-metric test set evaluator]
+│   │   ├── extract_datasets.py             [Idempotent zip extractor with Windows path sanitization]
+│   │   ├── generate_dataset_report.py      [Dataset inventory markdown generator]
+│   │   ├── inspect_datasets.py             [Incoming zip file inspector]
+│   │   ├── predict_classification.py       [CLI inference test script]
+│   │   ├── prepare_datasets.py             [Stratified split generator & manifest builder]
+│   │   ├── train_efficientnet.py           [EfficientNet-B0 transfer learning script]
+│   │   ├── train_ensemble.py               [Ensemble weight optimization search script]
+│   │   ├── train_mobilenet.py              [MobileNetV3 transfer learning script]
+│   │   ├── train_segmentation.py           [U-Net PlantSeg training script]
+│   │   └── verify_datasets.py              [Image corruption, mask match, and duplicate detector]
+│   └── tests/                              [Automated integration test suite]
+│       └── test_api.py                     [9 comprehensive pytest integration tests]
+│
+├── datasets/
+│   └── incoming/                           [Original user-provided ZIP archives]
+│       ├── PlantVillage.zip                [2,504,302,720 bytes (2.33 GB)]
+│       ├── PlantDoc.zip                    [984,413,268 bytes (938.8 MB)]
+│       ├── PlantSeg.zip                    [1,057,281,724 bytes (1008.3 MB)]
+│       └── PlantWild.zip                   [2,708,493,416 bytes (2.52 GB)]
+│
+├── docs/                                   [Technical reports and evaluation summaries]
+│   ├── dataset_inventory_report.md         [Detailed dataset analysis report]
+│   └── model_evaluation_report.md          [Classification & segmentation performance report]
+│
+├── frontend/                               [React 18 + TypeScript + Vite + Tailwind CSS]
+│   ├── index.html                          [HTML5 entrypoint with Google Fonts (Inter)]
+│   ├── package.json                        [Frontend scripts and dependency declarations]
+│   ├── postcss.config.js                   [PostCSS configuration with @tailwindcss/postcss]
+│   ├── tailwind.config.js                  [Tailwind theme extensions: agri, earth colors]
+│   ├── tsconfig.json                       [Root TypeScript project reference configuration]
+│   ├── tsconfig.app.json                   [Client compiler options (verbatimModuleSyntax: false)]
+│   ├── tsconfig.node.json                  [Vite configuration compiler options]
+│   ├── vite.config.ts                      [Vite build and proxy configuration (/api -> :8000)]
+│   ├── dist/                               [Compiled production bundle]
+│   │   ├── index.html                      [1.28 kB HTML]
+│   │   └── assets/                         [49.94 kB CSS + 768.98 kB JS]
+│   ├── public/                             [Static icons and favicons]
+│   │   ├── favicon.svg
+│   │   └── icons.svg
+│   └── src/                                [Application source code]
+│       ├── App.css
+│       ├── App.tsx                         [Main navigation router and top-level layout]
+│       ├── index.css                       [Tailwind CSS imports & base styles]
+│       ├── main.tsx                        [React DOM mounting root]
+│       ├── assets/                         [Graphics and SVGs]
+│       ├── components/                     [Reusable modular UI components]
+│       │   ├── Footer.tsx                  [Academic & institutional attribution footer]
+│       │   ├── GradCamViewer.tsx           [Side-by-side & blend heatmap viewer with opacity slider]
+│       │   ├── MandiPricesTicker.tsx       [Live Gujarat APMC commodity price ticker]
+│       │   ├── Navbar.tsx                  [Multilingual nav, user dropdown, demo switch]
+│       │   ├── QualityGuardModal.tsx       [Actionable blur/dark/non-plant rejection guidance]
+│       │   ├── SegmentationOverlayViewer.tsx [U-Net lesion overlay with bounding boxes toggle]
+│       │   ├── SeverityGauge.tsx           [Color-coded 5-tier canopy severity meter]
+│       │   └── WeatherRiskCard.tsx         [Microclimate parameters & disease vulnerability]
+│       ├── context/                        [Global React State Contexts]
+│       │   ├── AuthContext.tsx             [JWT authentication & demo account switcher]
+│       │   └── LanguageContext.tsx         [Trilingual switcher: English, Hindi, Gujarati]
+│       ├── i18n/                           [Localization dictionaries]
+│       │   ├── en.ts                       [English translations]
+│       │   ├── gu.ts                       [Gujarati translations (ગુજરાતી)]
+│       │   └── hi.ts                       [Hindi translations (हिन्दी)]
+│       ├── pages/                          [Primary application views]
+│       │   ├── AgronomistPortal.tsx        [University specialist case triage workstation]
+│       │   ├── AlertsFeed.tsx              [Multi-channel farmer notification log]
+│       │   ├── AskExpert.tsx               [Farmer inquiry submission & thread board]
+│       │   ├── CropScanner.tsx             [Diagnostic studio: upload, Grad-CAM, U-Net, report]
+│       │   ├── Dashboard.tsx               [Farmer command center: KPIs, weather, Mandi, chart]
+│       │   ├── DatasetsAndModels.tsx       [Model transparency & dataset explorer]
+│       │   ├── KisanBot.tsx                [Interactive ICAR/AAU RAG chat interface]
+│       │   ├── Login.tsx                   [Authentication & one-click demo login]
+│       │   └── ScanHistory.tsx             [Filterable past scan archive with report export]
+│       ├── services/                       [HTTP Client & REST API Wrappers]
+│       │   └── api.ts                      [Axios instance with JWT interceptor & typed calls]
+│       └── types/                          [TypeScript interfaces]
+│           └── index.ts                    [Full data models: User, Scan, Severity, Weather, etc.]
+│
+└── project_audit/                          [This technical audit report directory]
+    ├── 01_project_structure.txt
+    ├── 02_ai_models_audit.md
+    ├── 03_segmentation_audit.md
+    ├── 04_dataset_audit.md
+    ├── 05_backend_audit.md
+    ├── 06_frontend_audit.md
+    ├── 07_testing_report.md
+    ├── 08_missing_features_and_bugs.md
+    └── 09_run_instructions.md
+
+--------------------------------------------------------------------------------
+2. KEY BACKEND FILES IDENTIFICATION
+--------------------------------------------------------------------------------
+Core Entrypoint:
+- backend/app/main.py: App initialization, CORS, static mounts (/static, /uploads),
+  startup lifecycle event for DB initialization and demo user seeding.
+
+AI Engine & Pipelines:
+- backend/app/ai/pipeline.py: Main inference pipeline coordinating Quality Guard,
+  Dual-CNN ensemble, Grad-CAM generation, U-Net lesion segmentation, and severity quantification.
+- backend/app/ai/models.py: EfficientNet-B0, MobileNetV3-Small, ClassificationEnsemble,
+  DoubleConv, and UNet architectures.
+- backend/app/ai/gradcam.py: Pure PyTorch tensor forward/backward hook implementation
+  for class activation mapping with OpenCV Jet colormapping.
+- backend/app/ai/quality_guard.py: Pre-inference heuristic CV checking resolution,
+  Laplacian blur, brightness boundaries, contrast, and HSV foliar spectrum.
+- backend/app/ai/severity_estimator.py: Foliar damage quantifier using leaf masking,
+  lesion pixel ratio, 5-tier classification, and contour bounding box extraction.
+
+Data Contracts & Database:
+- backend/app/database/models.py: SQLAlchemy models (User, FarmerProfile, AgronomistProfile,
+  Scan, ScanPrediction, Notification, ExpertQuestion, ExpertResponse, WeatherRecord, MarketPrice).
+- backend/app/database/session.py: SQLite engine configuration and session dependency.
+- backend/app/schemas/schemas.py: Pydantic request/response models with validation.
+
+Services & Domain Logic:
+- backend/app/services/weather_service.py: Rule-based epidemiological model mapping
+  humidity, temperature, and rain to fungal/bacterial blight risk.
+- backend/app/services/market_service.py: Real Gujarat APMC Mandi commodity rates.
+- backend/app/services/kisan_bot_service.py: ICAR & Anand Agricultural University
+  packages of practices retrieval system.
+- backend/app/services/notification_service.py: Multi-channel alert dispatcher (In-App,
+  SMTP email TLS, Twilio SMS) with delivery status audit trail.
+
+--------------------------------------------------------------------------------
+3. KEY FRONTEND FILES IDENTIFICATION
+--------------------------------------------------------------------------------
+Core Entrypoint & Routing:
+- frontend/src/main.tsx: React DOM root bootstrap.
+- frontend/src/App.tsx: Root layout, navigation coordinator, and global unread alert polling.
+- frontend/vite.config.ts: Development proxy routing /api, /static, /uploads to :8000.
+
+Contexts & Localization:
+- frontend/src/context/AuthContext.tsx: JWT persistence, user profile, and demo switchers.
+- frontend/src/context/LanguageContext.tsx: Trilingual state manager (en, hi, gu).
+- frontend/src/i18n/en.ts, hi.ts, gu.ts: Complete localized dictionaries.
+
+User Interface Components:
+- frontend/src/components/Navbar.tsx: Responsive navbar with language & profile dropdowns.
+- frontend/src/components/GradCamViewer.tsx: Side-by-side & alpha-blended Grad-CAM heatmap viewer.
+- frontend/src/components/SegmentationOverlayViewer.tsx: U-Net lesion overlay with bounding boxes.
+- frontend/src/components/SeverityGauge.tsx: Visual 5-tier canopy severity progress meter.
+- frontend/src/components/QualityGuardModal.tsx: Actionable rejected image guidance modal.
+- frontend/src/components/WeatherRiskCard.tsx: Microclimate disease vulnerability card.
+- frontend/src/components/MandiPricesTicker.tsx: Gujarat APMC Mandi commodity rates ticker.
+
+Primary Application Pages:
+- frontend/src/pages/Dashboard.tsx: Comprehensive farmer command center with KPIs and charts.
+- frontend/src/pages/CropScanner.tsx: AI diagnostic studio with 4-stage live inference progress.
+- frontend/src/pages/ScanHistory.tsx: Searchable, filterable scan archive with table/grid toggle.
+- frontend/src/pages/AlertsFeed.tsx: Multi-channel notification audit feed.
+- frontend/src/pages/KisanBot.tsx: Interactive ICAR/AAU agronomic advisor chatbot.
+- frontend/src/pages/AskExpert.tsx: Farmer inquiry submission board for university specialists.
+- frontend/src/pages/AgronomistPortal.tsx: Official triage workstation for university agronomists.
+- frontend/src/pages/DatasetsAndModels.tsx: Transparent dataset metrics & neural network logs.
+- frontend/src/pages/Login.tsx: Farmer and agronomist authentication with one-click demo access.
+================================================================================

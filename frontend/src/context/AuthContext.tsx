@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { User, UserRole } from '../types';
-import axios from 'axios';
+import { authApi } from '../services/api';
 
 interface AuthContextType {
   user: User | null;
@@ -65,11 +65,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const password = role === 'farmer' ? 'farmer123' : 'expert123';
 
     try {
-      const response = await axios.post('/api/v1/auth/login', { email, password });
-      login(response.data.access_token, response.data.user);
+      const response = await authApi.login({ email, password });
+      login(response.access_token, response.user);
     } catch (err) {
-      console.error('Quick login error:', err);
-      // Fallback demo mock if offline
+      console.warn('Backend login unavailable, activating demo profile:', err);
+      // Fallback demo mock for presentations/offline
       const mockUser: User = {
         id: role === 'farmer' ? 1 : 2,
         email,
@@ -78,7 +78,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         language_preference: role === 'farmer' ? 'gu' : 'en',
         created_at: new Date().toISOString()
       };
-      login('demo_token', mockUser);
+      login(role === 'farmer' ? 'demo_token' : 'demo_expert', mockUser);
     }
   };
 

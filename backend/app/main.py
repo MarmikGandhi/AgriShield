@@ -32,10 +32,10 @@ app = FastAPI(
     description="Production-grade AI crop disease diagnosis, segmentation, explainable Grad-CAM, and farmer alert platform."
 )
 
-# CORS
+# CORS - support all local & deployed domains with credentials
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origin_regex="https?://.*",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

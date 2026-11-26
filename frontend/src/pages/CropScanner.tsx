@@ -2,7 +2,7 @@
 
 import React, { useState, useRef } from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { scanApi } from '../services/api';
+import { scanApi, API_BASE } from '../services/api';
 import { ScanRecord, QualityGuardResult } from '../types';
 import { QualityGuardModal } from '../components/QualityGuardModal';
 import { GradCamViewer } from '../components/GradCamViewer';
@@ -96,9 +96,19 @@ export const CropScanner: React.FC<CropScannerProps> = ({ initialScan, onNavigat
       } else if (err.response?.status === 503) {
         const detail = err.response.data?.detail;
         alert(`AI Model Unavailable: ${detail?.message || detail?.error || 'Required AI models are not ready or checkpoints are missing.'}`);
+      } else if (!err.response) {
+        const targetHost = API_BASE || window.location.origin;
+        console.error('Target backend:', targetHost);
+        alert(
+          `Cannot connect to backend server (${targetHost}).\n\n` +
+          `Common causes:\n` +
+          `1. Cold Start: Render free tier sleeps after 15m. Please wait 45s for it to wake up and try again.\n` +
+          `2. Vercel Config: VITE_API_BASE_URL environment variable is missing in Vercel settings.\n` +
+          `3. CORS / Network: Browser blocked request to ${targetHost}.`
+        );
       } else {
         const detail = err.response?.data?.detail;
-        alert(typeof detail === 'string' ? detail : (detail?.message || 'Analysis failed. Please check network connection.'));
+        alert(typeof detail === 'string' ? detail : (detail?.message || `Server error (${err.response.status}).`));
       }
     } finally {
       clearTimeout(stageTimer1);

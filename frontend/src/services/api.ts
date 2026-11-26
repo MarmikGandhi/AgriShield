@@ -12,7 +12,15 @@ import {
   ExpertQuestionItem,
 } from '../types';
 
-export const API_BASE = import.meta.env.VITE_API_BASE_URL ? (import.meta.env.VITE_API_BASE_URL as string).replace(/\/$/, '') : '';
+declare const __APP_API_BASE__: string | undefined;
+
+const rawBase =
+  (typeof __APP_API_BASE__ !== 'undefined' && __APP_API_BASE__) ||
+  import.meta.env.VITE_API_BASE_URL ||
+  import.meta.env.VITE_BACKEND_URL ||
+  '';
+
+export const API_BASE = rawBase ? (rawBase as string).replace(/\/$/, '') : '';
 
 export const getAssetUrl = (url?: string | null): string => {
   if (!url) return '';

@@ -9,10 +9,11 @@ Crop scanning and diagnostic endpoints:
 """
 
 import os
+import json
 import shutil
 from pathlib import Path
 from datetime import datetime
-from typing import List, Optional
+from typing import List, Optional, Dict, Any
 from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form, Query, status
 from fastapi.responses import JSONResponse
 from sqlalchemy.orm import Session
@@ -224,19 +225,116 @@ async def create_scan(
             detail=f"Scan error: {str(exc)}"
         )
 
-def format_scan_response(scan: Scan, alternatives: list = None) -> dict:
-    alts = alternatives or []
-    if not alts and scan.predictions:
-        alts = [
-            {
-                "class_id": p.class_id,
-                "crop": p.crop,
-                "condition": p.condition,
-                "confidence": p.confidence,
-                "probability": round(p.confidence / 100.0, 4),
-                "is_healthy": "healthy" in p.condition.lower()
-            } for p in scan.predictions
+_CLASS_MAPPING_CACHE: Optional[Dict[int, Dict[str, Any]]] = None
+
+def get_class_mapping_by_id() -> Dict[int, Dict[str, Any]]:
+    global _CLASS_MAPPING_CACHE
+    if _CLASS_MAPPING_CACHE is None:
+        base_dir = Path(__file__).resolve().parent.parent.parent.parent
+        candidates = [
+            base_dir / "data" / "manifests" / "class_mapping.json",
+            base_dir / "backend" / "data" / "manifests" / "class_mapping.json",
+            Path.cwd() / "data" / "manifests" / "class_mapping.json",
+            Path.cwd() / "backend" / "data" / "manifests" / "class_mapping.json",
         ]
+        mapping_dict: Dict[int, Dict[str, Any]] = {}
+        for cand in candidates:
+            if cand.exists():
+                try:
+                    with open(cand, "r", encoding="utf-8") as f:
+                        data = json.load(f)
+                        if isinstance(data, list):
+                            for item in data:
+                                if "class_id" in item:
+                                    mapping_dict[int(item["class_id"])] = item
+                            break
+                except Exception:
+                    pass
+        _CLASS_MAPPING_CACHE = mapping_dict
+    return _CLASS_MAPPING_CACHE
+
+def format_prediction_item(raw_alt: Any) -> Dict[str, Any]:
+    """
+    Format and validate any prediction item (ORM instance or dict) into
+    the exact schema required by PredictionItem.
+    Derives is_healthy strictly from class metadata, never heuristic string rules.
+    Maintains semantic consistency between confidence (0-100%) and probability (0.0-1.0).
+    """
+    mapping = get_class_mapping_by_id()
+
+    if isinstance(raw_alt, dict):
+        class_id = int(raw_alt.get("class_id", 0))
+        crop = raw_alt.get("crop")
+        condition = raw_alt.get("condition")
+        confidence = float(raw_alt.get("confidence", 0.0))
+        prob_val = raw_alt.get("probability")
+        is_healthy = raw_alt.get("is_healthy")
+        crop_hi = raw_alt.get("crop_hi")
+        crop_gu = raw_alt.get("crop_gu")
+        condition_hi = raw_alt.get("condition_hi")
+        condition_gu = raw_alt.get("condition_gu")
+        causal_agent = raw_alt.get("causal_agent")
+        default_severity = raw_alt.get("default_severity")
+    else:
+        # ScanPrediction ORM object
+        class_id = int(raw_alt.class_id)
+        crop = getattr(raw_alt, "crop", None)
+        condition = getattr(raw_alt, "condition", None)
+        confidence = float(getattr(raw_alt, "confidence", 0.0))
+        prob_val = getattr(raw_alt, "probability", None)
+        is_healthy = getattr(raw_alt, "is_healthy", None)
+        crop_hi = getattr(raw_alt, "crop_hi", None)
+        crop_gu = getattr(raw_alt, "crop_gu", None)
+        condition_hi = getattr(raw_alt, "condition_hi", None)
+        condition_gu = getattr(raw_alt, "condition_gu", None)
+        causal_agent = getattr(raw_alt, "causal_agent", None)
+        default_severity = getattr(raw_alt, "default_severity", None)
+
+    meta = mapping.get(class_id, {})
+
+    # Derive is_healthy strictly from canonical class metadata
+    if class_id in mapping and "is_healthy" in meta:
+        resolved_is_healthy = bool(meta["is_healthy"])
+    elif is_healthy is not None:
+        resolved_is_healthy = bool(is_healthy)
+    else:
+        resolved_is_healthy = False
+
+    # Derive probability and confidence
+    if prob_val is not None:
+        try:
+            prob_float = float(prob_val)
+            if prob_float > 1.0:
+                prob_float = prob_float / 100.0
+        except (ValueError, TypeError):
+            prob_float = confidence / 100.0
+    else:
+        prob_float = confidence / 100.0
+
+    prob_float = round(prob_float, 4)
+    if confidence == 0.0 and prob_float > 0.0:
+        confidence = round(prob_float * 100.0, 2)
+    else:
+        confidence = round(confidence, 2)
+
+    return {
+        "class_id": class_id,
+        "crop": crop or meta.get("crop", "Unknown"),
+        "crop_hi": crop_hi or meta.get("crop_hi", ""),
+        "crop_gu": crop_gu or meta.get("crop_gu", ""),
+        "condition": condition or meta.get("condition", "Unknown"),
+        "condition_hi": condition_hi or meta.get("condition_hi", ""),
+        "condition_gu": condition_gu or meta.get("condition_gu", ""),
+        "is_healthy": resolved_is_healthy,
+        "confidence": confidence,
+        "probability": prob_float,
+        "causal_agent": causal_agent or meta.get("causal_agent", "N/A"),
+        "default_severity": default_severity or meta.get("default_severity", "Medium")
+    }
+
+def format_scan_response(scan: Scan, alternatives: list = None) -> dict:
+    raw_alts = alternatives if alternatives is not None else (scan.predictions or [])
+    formatted_alts = [format_prediction_item(a) for a in raw_alts]
 
     sev_level = scan.severity_level or ""
     is_approx = "Approximate" in sev_level or "Discrepancy" in sev_level or "Unavailable" in sev_level
@@ -275,7 +373,7 @@ def format_scan_response(scan: Scan, alternatives: list = None) -> dict:
         "prevention_advice": scan.prevention_advice,
         "quality_status": scan.quality_status,
         "quality_metrics": scan.quality_metrics,
-        "alternatives": alts,
+        "alternatives": formatted_alts,
         "created_at": scan.created_at
     }
 

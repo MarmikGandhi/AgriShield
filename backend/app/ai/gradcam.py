@@ -60,7 +60,7 @@ class GradCAM:
             confidence: float confidence probability
         """
         self.model.eval()
-        self.model.zero_grad()
+        self.model.zero_grad(set_to_none=True)
 
         # Forward pass
         logits = self.model(input_tensor)
@@ -71,24 +71,24 @@ class GradCAM:
 
         confidence = float(probs[0, target_class].item())
 
-        # Backward pass for target class score
+        # Backward pass for target class score - retain_graph=False prevents graph caching
         score = logits[0, target_class]
-        score.backward(retain_graph=True)
+        score.backward(retain_graph=False)
 
         # Global average pooling of gradients: weights alpha_k
-        # gradients shape: (1, channels, h, w)
         pooled_gradients = torch.mean(self.gradients, dim=[0, 2, 3])
 
         # Multiply each channel by corresponding gradient weight
-        for i in range(self.activations.shape[1]):
-            self.activations[:, i, :, :] *= pooled_gradients[i]
+        act = self.activations.clone()
+        for i in range(act.shape[1]):
+            act[:, i, :, :] *= pooled_gradients[i]
 
         # ReLU over weighted combination
-        heatmap = torch.mean(self.activations, dim=1).squeeze()
+        heatmap = torch.mean(act, dim=1).squeeze()
         heatmap = torch.clamp(heatmap, min=0)
 
         # Normalize to [0, 1]
-        heatmap_np = heatmap.cpu().numpy()
+        heatmap_np = heatmap.detach().cpu().numpy()
         max_val = np.max(heatmap_np)
         if max_val > 1e-8:
             heatmap_norm = heatmap_np / max_val
@@ -102,6 +102,12 @@ class GradCAM:
 
         # Apply JET colormap for high visual saliency
         heatmap_colored = cv2.applyColorMap(heatmap_uint8, cv2.COLORMAP_JET)
+
+        # Release hooks memory and internal gradient tensors
+        self.activations = None
+        self.gradients = None
+        self.model.zero_grad(set_to_none=True)
+        del logits, probs, score, pooled_gradients, act, heatmap, heatmap_np, heatmap_norm, heatmap_uint8
 
         return heatmap_resized, heatmap_colored, target_class, confidence
 

@@ -72,6 +72,9 @@ class SeverityEstimator:
         neutral_bg = (s_channel < 18) & ((v_channel < 35) | (v_channel > 235))
         combined_foliar[neutral_bg] = 0
 
+        # Free temporary color arrays immediately
+        del hsv, lab, mask_green, mask_chlorotic, mask_necrotic_1, mask_necrotic_2, mask_lab_foliar, a_channel, s_channel, v_channel, neutral_bg
+
         # 2. Morphological cleanup: smooth boundaries
         kernel_close = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (7, 7))
         cleaned = cv2.morphologyEx(combined_foliar, cv2.MORPH_CLOSE, kernel_close, iterations=2)

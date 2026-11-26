@@ -4,6 +4,10 @@ main.py
 FastAPI Main Application Entrypoint for the AI Crop Stress Detection and Farmer Alert System.
 """
 
+import torch
+# Constrain PyTorch thread count to 1 for memory protection on low-RAM containers
+torch.set_num_threads(1)
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles

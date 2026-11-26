@@ -11,9 +11,13 @@ Crop scanning and diagnostic endpoints:
 import os
 import json
 import shutil
+import asyncio
+import logging
+import gc
 from pathlib import Path
 from datetime import datetime
 from typing import List, Optional, Dict, Any
+import torch
 from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form, Query, status
 from fastapi.responses import JSONResponse
 from sqlalchemy.orm import Session
@@ -24,10 +28,14 @@ from app.database.models import User, Scan, ScanPrediction
 from app.schemas.schemas import ScanResponse, ScanPrediction as ScanPredictionSchema
 from app.api.deps import get_current_user
 from app.core.config import settings
-from app.ai.pipeline import CropHealthPipeline
+from app.ai.pipeline import CropHealthPipeline, get_process_memory_mb
 from app.services.notification_service import send_farmer_alert
 
+logger = logging.getLogger("agrishield.scans")
 router = APIRouter(prefix="/scans", tags=["Scanner & History"])
+
+# Single-flight concurrency lock to serialize inference on memory-constrained hosts (512MB limit)
+_inference_lock = asyncio.Lock()
 
 # Lazy-loaded singleton pipeline
 _pipeline = None
@@ -79,21 +87,32 @@ async def create_scan(
         with open(file_path, "wb") as buffer:
             shutil.copyfileobj(file.file, buffer)
 
-        # Execute complete AI diagnostic pipeline with memory protection and fallback
-        try:
-            pipeline = get_pipeline()
-            diag_result = pipeline.process_image(
-                image_path=str(file_path),
-                save_visualizations=True,
-                output_dir=static_dir
-            )
-        except Exception as exc:
-            pipeline = get_pipeline()
-            diag_result = pipeline._fallback_cv_diagnosis(
-                image_path=str(file_path),
-                save_visualizations=True,
-                output_dir=static_dir
-            )
+        # Execute complete AI diagnostic pipeline with single-flight memory protection and serialization
+        mem_before = get_process_memory_mb()
+        logger.info(f"[Scans API] User {current_user.id} requested scan. Memory before: {mem_before} MB")
+
+        async with _inference_lock:
+            try:
+                pipeline = get_pipeline()
+                diag_result = pipeline.process_image(
+                    image_path=str(file_path),
+                    save_visualizations=True,
+                    output_dir=static_dir
+                )
+            except (MemoryError, torch.cuda.OutOfMemoryError) as mem_err:
+                gc.collect()
+                logger.error(f"[Scans API] MemoryError during inference: {mem_err}. RSS: {get_process_memory_mb()} MB")
+                raise HTTPException(
+                    status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+                    detail="The diagnostic server reached its memory limit. Please try again or upload a lower-resolution photo."
+                )
+            except Exception as exc:
+                pipeline = get_pipeline()
+                diag_result = pipeline._fallback_cv_diagnosis(
+                    image_path=str(file_path),
+                    save_visualizations=True,
+                    output_dir=static_dir
+                )
 
         if not diag_result["success"]:
             stage = diag_result.get("stage", "UNKNOWN")
@@ -115,6 +134,15 @@ async def create_scan(
                         "message": "AI diagnostic models are currently unavailable or unvalidated.",
                         "error": diag_result.get("error"),
                         "model_status": diag_result.get("model_status"),
+                        "stage": stage
+                    }
+                )
+            elif stage == "OUT_OF_MEMORY":
+                raise HTTPException(
+                    status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+                    detail={
+                        "message": "AI diagnostic pipeline exceeded memory limits during inference. Please upload a smaller image or retry.",
+                        "error": diag_result.get("error"),
                         "stage": stage
                     }
                 )
@@ -214,6 +242,7 @@ async def create_scan(
             )
 
         # Format response
+        logger.info(f"[Scans API] Scan id={scan.id} saved and returning response. Final RSS: {get_process_memory_mb()} MB")
         return format_scan_response(scan, diag_result.get("alternatives", []))
     except HTTPException:
         raise

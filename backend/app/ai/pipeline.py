@@ -16,8 +16,21 @@ import sys
 import json
 import base64
 import gc
+import logging
 from pathlib import Path
 from typing import Dict, Any, Optional, Tuple
+
+import psutil
+
+logger = logging.getLogger("agrishield.ai.pipeline")
+
+def get_process_memory_mb() -> float:
+    """Returns current process Resident Set Size (RSS) in megabytes."""
+    try:
+        proc = psutil.Process()
+        return round(proc.memory_info().rss / (1024 * 1024), 2)
+    except Exception:
+        return 0.0
 
 # Restrict multi-threading to prevent OOM kills on containerized hosts (Render 512MB limit)
 os.environ["OMP_NUM_THREADS"] = "1"
@@ -479,7 +492,10 @@ class CropHealthPipeline:
                 "error": q_result["message"]
             }
 
-        # Step 2: Read image pixels
+        # Step 2: Read image pixels and constrain excessive camera dimensions to protect memory
+        mem_start = get_process_memory_mb()
+        logger.info(f"[Pipeline] Starting process_image on {Path(image_path).name}. Initial RSS: {mem_start} MB")
+
         bgr_img = cv2.imread(image_path)
         if bgr_img is None or bgr_img.size == 0:
             return {
@@ -488,115 +504,162 @@ class CropHealthPipeline:
                 "error": "Failed to decode image pixels from file. File may be corrupted or in an unsupported format."
             }
 
+        # Cap processing dimensions (max 640px) to prevent multi-megapixel phone cameras from consuming hundreds of MBs
+        orig_h, orig_w = bgr_img.shape[:2]
+        max_dim = 640
+        if max(orig_h, orig_w) > max_dim:
+            scale = max_dim / max(orig_h, orig_w)
+            h, w = int(orig_h * scale), int(orig_w * scale)
+            bgr_img = cv2.resize(bgr_img, (w, h), interpolation=cv2.INTER_AREA)
+        else:
+            h, w = orig_h, orig_w
+
         rgb_img = cv2.cvtColor(bgr_img, cv2.COLOR_BGR2RGB)
         pil_img = Image.fromarray(rgb_img)
-        h, w = bgr_img.shape[:2]
 
-        # Step 3: Dual-CNN Ensemble Classification
-        input_tensor_cls = self.preprocess_cls(pil_img).unsqueeze(0).to(self.device)
-        with torch.no_grad():
-            probs = self.ensemble(input_tensor_cls).squeeze(0)
+        try:
+            # Step 3: Dual-CNN Ensemble Classification
+            input_tensor_cls = self.preprocess_cls(pil_img).unsqueeze(0).to(self.device)
+            with torch.inference_mode():
+                probs = self.ensemble(input_tensor_cls).squeeze(0)
+                top_k = min(5, len(self.class_mapping))
+                top_probs, top_indices = torch.topk(probs, k=top_k)
 
-        top_k = min(5, len(self.class_mapping))
-        top_probs, top_indices = torch.topk(probs, k=top_k)
+                predictions = []
+                for p, idx in zip(top_probs, top_indices):
+                    idx_val = int(idx.item())
+                    prob_val = float(p.item())
+                    meta = self.class_mapping[idx_val] if idx_val < len(self.class_mapping) else {}
+                    predictions.append({
+                        "class_id": idx_val,
+                        "crop": meta.get("crop", "Unknown"),
+                        "crop_hi": meta.get("crop_hi", ""),
+                        "crop_gu": meta.get("crop_gu", ""),
+                        "condition": meta.get("condition", "Unknown"),
+                        "condition_hi": meta.get("condition_hi", ""),
+                        "condition_gu": meta.get("condition_gu", ""),
+                        "is_healthy": meta.get("is_healthy", False),
+                        "confidence": round(prob_val * 100, 2),
+                        "probability": round(prob_val, 4),
+                        "causal_agent": meta.get("causal_agent", "N/A"),
+                        "default_severity": meta.get("default_severity", "Medium")
+                    })
 
-        predictions = []
-        for p, idx in zip(top_probs, top_indices):
-            idx_val = int(idx.item())
-            prob_val = float(p.item())
-            meta = self.class_mapping[idx_val] if idx_val < len(self.class_mapping) else {}
-            predictions.append({
-                "class_id": idx_val,
-                "crop": meta.get("crop", "Unknown"),
-                "crop_hi": meta.get("crop_hi", ""),
-                "crop_gu": meta.get("crop_gu", ""),
-                "condition": meta.get("condition", "Unknown"),
-                "condition_hi": meta.get("condition_hi", ""),
-                "condition_gu": meta.get("condition_gu", ""),
-                "is_healthy": meta.get("is_healthy", False),
-                "confidence": round(prob_val * 100, 2),
-                "probability": round(prob_val, 4),
-                "causal_agent": meta.get("causal_agent", "N/A"),
-                "default_severity": meta.get("default_severity", "Medium")
-            })
+            top_pred = predictions[0]
 
-        top_pred = predictions[0]
+            # Immediately release classification tensors
+            del input_tensor_cls, probs, top_probs, top_indices
+            gc.collect()
+            logger.info(f"[Pipeline] Post-Classification RSS: {get_process_memory_mb()} MB")
 
-        # Step 4: Authentic Grad-CAM Generation (Explicitly attributed to EfficientNet-B0)
-        gradcam_overlay_bgr = None
-        gradcam_metadata = {
-            "generated": False,
-            "model_source": "EfficientNet-B0",
-            "layer": "features[-1]",
-            "disclaimer": "Grad-CAM visual attribution is computed specifically from the EfficientNet-B0 backbone feature maps and does not reflect MobileNetV3 activations."
-        }
-        if self.gradcam is not None and self.model_status["efficientnet_b0"]["inference_ready"]:
-            try:
-                input_tensor_grad = self.preprocess_cls(pil_img).unsqueeze(0).to(self.device)
-                input_tensor_grad.requires_grad = True
-                norm_hm, colored_hm, _, _ = self.gradcam.generate_heatmap(
-                    input_tensor_grad,
-                    target_class=top_pred["class_id"],
-                    original_shape=(h, w)
-                )
-                gradcam_overlay_bgr = GradCAM.overlay_on_image(bgr_img, colored_hm, alpha=0.50)
-                gradcam_metadata["generated"] = True
-            except Exception as e:
-                gradcam_metadata["error"] = str(e)
+            # Step 4: Authentic Grad-CAM Generation (Explicitly attributed to EfficientNet-B0)
+            gradcam_overlay_bgr = None
+            gradcam_metadata = {
+                "generated": False,
+                "model_source": "EfficientNet-B0",
+                "layer": "features[-1]",
+                "disclaimer": "Grad-CAM visual attribution is computed specifically from the EfficientNet-B0 backbone feature maps and does not reflect MobileNetV3 activations."
+            }
+            if self.gradcam is not None and self.model_status["efficientnet_b0"]["inference_ready"]:
+                try:
+                    input_tensor_grad = self.preprocess_cls(pil_img).unsqueeze(0).to(self.device)
+                    input_tensor_grad.requires_grad = True
+                    norm_hm, colored_hm, _, _ = self.gradcam.generate_heatmap(
+                        input_tensor_grad,
+                        target_class=top_pred["class_id"],
+                        original_shape=(h, w)
+                    )
+                    gradcam_overlay_bgr = GradCAM.overlay_on_image(bgr_img, colored_hm, alpha=0.50)
+                    gradcam_metadata["generated"] = True
+                    del input_tensor_grad, norm_hm, colored_hm
+                except Exception as e:
+                    gradcam_metadata["error"] = str(e)
+                finally:
+                    if self.eff_model is not None:
+                        self.eff_model.zero_grad(set_to_none=True)
+                    gc.collect()
 
-        # Step 5: U-Net Lesion Segmentation & Severity Estimation
-        seg_mask_prob = None
-        segmentation_ready = self.model_status["unet"]["inference_ready"]
-        if segmentation_ready and self.unet is not None:
-            try:
-                input_tensor_seg = self.preprocess_seg(pil_img).unsqueeze(0).to(self.device)
-                with torch.no_grad():
-                    seg_out = self.unet(input_tensor_seg).squeeze().cpu().numpy()
-                seg_mask_prob = cv2.resize(seg_out, (w, h), interpolation=cv2.INTER_LINEAR)
-            except Exception as e:
-                seg_mask_prob = None
+            logger.info(f"[Pipeline] Post-GradCAM RSS: {get_process_memory_mb()} MB")
 
-        # Determine classifier certainty
-        is_uncertain = top_pred["confidence"] < 40.0
-        if len(predictions) > 1 and (top_pred["confidence"] - predictions[1]["confidence"]) < 10.0:
-            is_uncertain = True
+            # Step 5: U-Net Lesion Segmentation & Severity Estimation
+            seg_mask_prob = None
+            segmentation_ready = self.model_status["unet"]["inference_ready"]
+            if segmentation_ready and self.unet is not None:
+                try:
+                    input_tensor_seg = self.preprocess_seg(pil_img).unsqueeze(0).to(self.device)
+                    with torch.inference_mode():
+                        seg_out = self.unet(input_tensor_seg).squeeze().cpu().numpy()
+                    seg_mask_prob = cv2.resize(seg_out, (w, h), interpolation=cv2.INTER_LINEAR)
+                    del input_tensor_seg, seg_out
+                except Exception as e:
+                    seg_mask_prob = None
+                finally:
+                    gc.collect()
 
-        severity_result = self.severity_estimator.calculate_severity(
-            bgr_img,
-            predicted_mask_prob=seg_mask_prob,
-            is_healthy_prediction=top_pred["is_healthy"],
-            classification_confidence=top_pred["confidence"],
-            force_independent_segmentation=True,
-            segmentation_ready=segmentation_ready
-        )
-        severity_result["is_uncertain_classification"] = is_uncertain
+            logger.info(f"[Pipeline] Post-UNet RSS: {get_process_memory_mb()} MB")
 
-        # Generate Segmentation Overlay whenever lesion pixels are detected
-        seg_overlay_bgr = None
-        if severity_result["diseased_pixels"] > 0:
+            # Determine classifier certainty
+            is_uncertain = top_pred["confidence"] < 40.0
+            if len(predictions) > 1 and (top_pred["confidence"] - predictions[1]["confidence"]) < 10.0:
+                is_uncertain = True
+
+            severity_result = self.severity_estimator.calculate_severity(
+                bgr_img,
+                predicted_mask_prob=seg_mask_prob,
+                is_healthy_prediction=top_pred["is_healthy"],
+                classification_confidence=top_pred["confidence"],
+                force_independent_segmentation=True,
+                segmentation_ready=segmentation_ready
+            )
+            severity_result["is_uncertain_classification"] = is_uncertain
+
+            # Generate Segmentation Overlay whenever lesion pixels are detected
+            seg_overlay_bgr = None
+            if severity_result["diseased_pixels"] > 0:
+                if seg_mask_prob is not None:
+                    mask_uint8 = (seg_mask_prob >= 0.5).astype(np.uint8) * 255
+                else:
+                    leaf_m, _ = self.severity_estimator.segment_leaf_tissue(bgr_img)
+                    mask_uint8 = cv2.inRange(cv2.cvtColor(bgr_img, cv2.COLOR_BGR2HSV), np.array([4, 30, 30]), np.array([24, 255, 255]))
+                    mask_uint8 = cv2.bitwise_and(mask_uint8, leaf_m)
+                seg_overlay_bgr = SeverityEstimator.generate_segmentation_overlay(bgr_img, mask_uint8)
+                del mask_uint8
+
             if seg_mask_prob is not None:
-                mask_uint8 = (seg_mask_prob >= 0.5).astype(np.uint8) * 255
-            else:
-                leaf_m, _ = self.severity_estimator.segment_leaf_tissue(bgr_img)
-                mask_uint8 = cv2.inRange(cv2.cvtColor(bgr_img, cv2.COLOR_BGR2HSV), np.array([4, 30, 30]), np.array([24, 255, 255]))
-                mask_uint8 = cv2.bitwise_and(mask_uint8, leaf_m)
-            seg_overlay_bgr = SeverityEstimator.generate_segmentation_overlay(bgr_img, mask_uint8)
+                del seg_mask_prob
+            gc.collect()
 
-        # Save visualization files if requested
-        vis_paths = {}
-        if save_visualizations and output_dir is not None:
-            output_dir.mkdir(parents=True, exist_ok=True)
-            stem = Path(image_path).stem
+            # Save visualization files if requested
+            vis_paths = {}
+            if save_visualizations and output_dir is not None:
+                output_dir.mkdir(parents=True, exist_ok=True)
+                stem = Path(image_path).stem
 
-            if gradcam_overlay_bgr is not None:
-                gc_file = output_dir / f"{stem}_gradcam.jpg"
-                cv2.imwrite(str(gc_file), gradcam_overlay_bgr)
-                vis_paths["gradcam_path"] = str(gc_file)
+                if gradcam_overlay_bgr is not None:
+                    gc_file = output_dir / f"{stem}_gradcam.jpg"
+                    cv2.imwrite(str(gc_file), gradcam_overlay_bgr)
+                    vis_paths["gradcam_path"] = str(gc_file)
+                    del gradcam_overlay_bgr
 
-            if seg_overlay_bgr is not None:
-                seg_file = output_dir / f"{stem}_segmentation.jpg"
-                cv2.imwrite(str(seg_file), seg_overlay_bgr)
-                vis_paths["segmentation_path"] = str(seg_file)
+                if seg_overlay_bgr is not None:
+                    seg_file = output_dir / f"{stem}_segmentation.jpg"
+                    cv2.imwrite(str(seg_file), seg_overlay_bgr)
+                    vis_paths["segmentation_path"] = str(seg_file)
+                    del seg_overlay_bgr
+
+        except (MemoryError, torch.cuda.OutOfMemoryError) as oom_exc:
+            gc.collect()
+            logger.error(f"[Pipeline] MemoryError during AI inference: {oom_exc}. RSS: {get_process_memory_mb()} MB")
+            return {
+                "success": False,
+                "stage": "OUT_OF_MEMORY",
+                "error": f"AI diagnostic pipeline exceeded memory limits during inference: {str(oom_exc)}"
+            }
+        finally:
+            del rgb_img, pil_img, bgr_img
+            gc.collect()
+
+        logger.info(f"[Pipeline] Finished process_image successfully. Final RSS: {get_process_memory_mb()} MB")
 
         return {
             "success": True,

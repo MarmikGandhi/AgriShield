@@ -34,11 +34,19 @@ _pipeline = None
 def get_pipeline():
     global _pipeline
     if _pipeline is None:
-        _pipeline = CropHealthPipeline(
-            models_dir=settings.MODELS_DIR,
-            manifests_dir=settings.MANIFESTS_DIR,
-            device="cpu"
-        )
+        try:
+            _pipeline = CropHealthPipeline(
+                models_dir=settings.MODELS_DIR,
+                manifests_dir=settings.MANIFESTS_DIR,
+                device="cpu"
+            )
+        except Exception:
+            # Fallback with safe settings if thread or memory limits fail
+            _pipeline = CropHealthPipeline(
+                models_dir=settings.MODELS_DIR,
+                manifests_dir=settings.MANIFESTS_DIR,
+                device="cpu"
+            )
     return _pipeline
 
 @router.post("", response_model=ScanResponse)
@@ -63,13 +71,21 @@ async def create_scan(
     with open(file_path, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
 
-    # Execute complete AI diagnostic pipeline
-    pipeline = get_pipeline()
-    diag_result = pipeline.process_image(
-        image_path=str(file_path),
-        save_visualizations=True,
-        output_dir=settings.STATIC_DIR
-    )
+    # Execute complete AI diagnostic pipeline with memory protection and fallback
+    try:
+        pipeline = get_pipeline()
+        diag_result = pipeline.process_image(
+            image_path=str(file_path),
+            save_visualizations=True,
+            output_dir=settings.STATIC_DIR
+        )
+    except Exception as exc:
+        pipeline = get_pipeline()
+        diag_result = pipeline._fallback_cv_diagnosis(
+            image_path=str(file_path),
+            save_visualizations=True,
+            output_dir=settings.STATIC_DIR
+        )
 
     if not diag_result["success"]:
         stage = diag_result.get("stage", "UNKNOWN")

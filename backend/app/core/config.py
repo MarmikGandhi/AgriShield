@@ -21,10 +21,38 @@ class Settings(BaseSettings):
 
     # Storage paths
     BASE_DIR: Path = Path(__file__).resolve().parent.parent.parent
-    UPLOAD_DIR: Path = BASE_DIR / "data" / "uploads"
-    STATIC_DIR: Path = BASE_DIR / "data" / "static"
-    MODELS_DIR: Path = BASE_DIR / "models"
-    MANIFESTS_DIR: Path = BASE_DIR / "data" / "manifests"
+
+    @property
+    def UPLOAD_DIR(self) -> Path:
+        for p in [self.BASE_DIR / "data" / "uploads", self.BASE_DIR.parent / "backend" / "data" / "uploads", self.BASE_DIR / "backend" / "data" / "uploads"]:
+            if p.exists():
+                return p
+        d = self.BASE_DIR / "data" / "uploads"
+        d.mkdir(parents=True, exist_ok=True)
+        return d
+
+    @property
+    def STATIC_DIR(self) -> Path:
+        for p in [self.BASE_DIR / "data" / "static", self.BASE_DIR.parent / "backend" / "data" / "static", self.BASE_DIR / "backend" / "data" / "static"]:
+            if p.exists():
+                return p
+        d = self.BASE_DIR / "data" / "static"
+        d.mkdir(parents=True, exist_ok=True)
+        return d
+
+    @property
+    def MODELS_DIR(self) -> Path:
+        for p in [self.BASE_DIR / "models", self.BASE_DIR.parent / "backend" / "models", self.BASE_DIR / "backend" / "models"]:
+            if p.exists():
+                return p
+        return self.BASE_DIR / "models"
+
+    @property
+    def MANIFESTS_DIR(self) -> Path:
+        for p in [self.BASE_DIR / "data" / "manifests", self.BASE_DIR.parent / "backend" / "data" / "manifests", self.BASE_DIR / "backend" / "data" / "manifests"]:
+            if p.exists():
+                return p
+        return self.BASE_DIR / "data" / "manifests"
 
     # Weather API (OpenWeather)
     OPENWEATHER_API_KEY: str = os.getenv("OPENWEATHER_API_KEY", "")

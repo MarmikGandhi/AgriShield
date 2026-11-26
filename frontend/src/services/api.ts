@@ -12,8 +12,16 @@ import {
   ExpertQuestionItem,
 } from '../types';
 
+const API_BASE = import.meta.env.VITE_API_BASE_URL ? (import.meta.env.VITE_API_BASE_URL as string).replace(/\/$/, '') : '';
+
+export const getAssetUrl = (url?: string | null): string => {
+  if (!url) return '';
+  if (url.startsWith('http://') || url.startsWith('https://')) return url;
+  return `${API_BASE}${url.startsWith('/') ? '' : '/'}${url}`;
+};
+
 const api = axios.create({
-  baseURL: '/api/v1',
+  baseURL: `${API_BASE}/api/v1`,
 });
 
 // Request interceptor to attach JWT token

@@ -28,7 +28,7 @@ from app.database.models import User, Scan, ScanPrediction
 from app.schemas.schemas import ScanResponse, ScanPrediction as ScanPredictionSchema
 from app.api.deps import get_current_user
 from app.core.config import settings
-from app.ai.pipeline import CropHealthPipeline, get_process_memory_mb
+from app.ai.pipeline import CropHealthPipeline, get_process_memory_mb, format_memory_log, trim_memory
 from app.services.notification_service import send_farmer_alert
 
 logger = logging.getLogger("agrishield.scans")
@@ -88,8 +88,7 @@ async def create_scan(
             shutil.copyfileobj(file.file, buffer)
 
         # Execute complete AI diagnostic pipeline with single-flight memory protection and serialization
-        mem_before = get_process_memory_mb()
-        logger.info(f"[Scans API] User {current_user.id} requested scan. Memory before: {mem_before} MB")
+        logger.info(f"[Scans API] User {current_user.id} requested scan. {format_memory_log()}")
 
         async with _inference_lock:
             try:
@@ -101,7 +100,8 @@ async def create_scan(
                 )
             except (MemoryError, torch.cuda.OutOfMemoryError) as mem_err:
                 gc.collect()
-                logger.error(f"[Scans API] MemoryError during inference: {mem_err}. RSS: {get_process_memory_mb()} MB")
+                trim_memory()
+                logger.error(f"[Scans API] MemoryError during inference: {mem_err}. {format_memory_log()}")
                 raise HTTPException(
                     status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
                     detail="The diagnostic server reached its memory limit. Please try again or upload a lower-resolution photo."
@@ -113,6 +113,8 @@ async def create_scan(
                     save_visualizations=True,
                     output_dir=static_dir
                 )
+
+        logger.info(f"[Scans API] Post-inference status: {diag_result.get('success')}. {format_memory_log()}")
 
         if not diag_result["success"]:
             stage = diag_result.get("stage", "UNKNOWN")

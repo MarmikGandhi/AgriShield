@@ -32,6 +32,40 @@ def get_process_memory_mb() -> float:
     except Exception:
         return 0.0
 
+def get_cgroup_memory_mb() -> Optional[float]:
+    """Returns current Linux cgroup memory usage in megabytes, or None if unavailable/on Windows."""
+    # cgroup v2
+    cg_v2 = Path("/sys/fs/cgroup/memory.current")
+    if cg_v2.exists():
+        try:
+            return round(int(cg_v2.read_text().strip()) / (1024 * 1024), 2)
+        except Exception:
+            pass
+    # cgroup v1
+    cg_v1 = Path("/sys/fs/cgroup/memory/memory.usage_in_bytes")
+    if cg_v1.exists():
+        try:
+            return round(int(cg_v1.read_text().strip()) / (1024 * 1024), 2)
+        except Exception:
+            pass
+    return None
+
+def format_memory_log() -> str:
+    """Returns memory status string including RSS and cgroup memory (if available)."""
+    rss = get_process_memory_mb()
+    cg = get_cgroup_memory_mb()
+    if cg is not None:
+        return f"RSS: {rss} MB | cgroup: {cg} MB / 512 MB ({round(cg / 512.0 * 100, 1)}%)"
+    return f"RSS: {rss} MB"
+
+def trim_memory():
+    """Forces glibc memory allocator to release unused heap pages to OS on Linux."""
+    try:
+        import ctypes
+        ctypes.CDLL("libc.so.6").malloc_trim(0)
+    except Exception:
+        pass
+
 # Restrict multi-threading to prevent OOM kills on containerized hosts (Render 512MB limit)
 os.environ["OMP_NUM_THREADS"] = "1"
 os.environ["MKL_NUM_THREADS"] = "1"
@@ -63,7 +97,7 @@ from app.ai.models import (
     UNet,
     validate_ensemble_weights
 )
-from app.ai.quality_guard import QualityGuard
+from app.ai.quality_guard import QualityGuard, verify_image_file_integrity
 from app.ai.gradcam import GradCAM
 from app.ai.severity_estimator import SeverityEstimator
 
@@ -179,6 +213,8 @@ class CropHealthPipeline:
             transforms.ToTensor(),
             transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
         ])
+
+        logger.info(f"[Pipeline] Initialized CropHealthPipeline models. {format_memory_log()}")
 
     def _validate_and_load_checkpoint(
         self,
@@ -482,9 +518,34 @@ class CropHealthPipeline:
                 "error": f"Image file not found: {image_path}"
             }
 
-        # Step 1: Image Quality Guard & Anti-spoofing
-        q_result = self.quality_guard.inspect_image(image_path)
-        if not q_result["is_valid"]:
+        # Initialize image variables before any processing to guarantee safe cleanup
+        bgr_img = None
+        rgb_img = None
+        pil_img = None
+
+        logger.info(f"[Pipeline] Starting process_image on {Path(image_path).name}. Initial {format_memory_log()}")
+
+        # Step 1: Pre-decode integrity and dimension checks to reject corrupt/truncated/oversized images
+        # BEFORE cv2.imread() is ever called.
+        try:
+            header_w, header_h = verify_image_file_integrity(image_path)
+        except Exception as e:
+            return {
+                "success": False,
+                "stage": "QUALITY_GUARD",
+                "quality_guard": {
+                    "is_valid": False,
+                    "status": "REJECTED",
+                    "reason": "CORRUPTED_IMAGE",
+                    "message": "The uploaded file is corrupted, truncated, or not a valid image format.",
+                    "metrics": {"error": str(e)}
+                },
+                "error": "The uploaded file is corrupted, truncated, or not a valid image format."
+            }
+
+        if (header_w > self.quality_guard.max_res[0] or header_h > self.quality_guard.max_res[1] or
+            header_w < self.quality_guard.min_res[0] or header_h < self.quality_guard.min_res[1]):
+            q_result = self.quality_guard.inspect_image(image_path, original_shape=(header_h, header_w))
             return {
                 "success": False,
                 "stage": "QUALITY_GUARD",
@@ -492,10 +553,7 @@ class CropHealthPipeline:
                 "error": q_result["message"]
             }
 
-        # Step 2: Read image pixels and constrain excessive camera dimensions to protect memory
-        mem_start = get_process_memory_mb()
-        logger.info(f"[Pipeline] Starting process_image on {Path(image_path).name}. Initial RSS: {mem_start} MB")
-
+        # Step 2: Decode image ONCE from disk and cap excessive dimensions immediately to protect memory
         bgr_img = cv2.imread(image_path)
         if bgr_img is None or bgr_img.size == 0:
             return {
@@ -504,15 +562,31 @@ class CropHealthPipeline:
                 "error": "Failed to decode image pixels from file. File may be corrupted or in an unsupported format."
             }
 
-        # Cap processing dimensions (max 640px) to prevent multi-megapixel phone cameras from consuming hundreds of MBs
         orig_h, orig_w = bgr_img.shape[:2]
         max_dim = 640
         if max(orig_h, orig_w) > max_dim:
-            scale = max_dim / max(orig_h, orig_w)
-            h, w = int(orig_h * scale), int(orig_w * scale)
+            scale = max_dim / float(max(orig_h, orig_w))
+            w, h = int(round(orig_w * scale)), int(round(orig_h * scale))
             bgr_img = cv2.resize(bgr_img, (w, h), interpolation=cv2.INTER_AREA)
         else:
             h, w = orig_h, orig_w
+
+        logger.info(f"[Pipeline] Decoded and scaled to ({w}x{h}, orig {orig_w}x{orig_h}). {format_memory_log()}")
+
+        # Step 3: Quality Guard & Anti-spoofing using the already-scaled memory-safe array
+        q_result = self.quality_guard.inspect_image(bgr_img, original_shape=(orig_h, orig_w))
+        if not q_result["is_valid"]:
+            bgr_img = None
+            gc.collect()
+            trim_memory()
+            return {
+                "success": False,
+                "stage": "QUALITY_GUARD",
+                "quality_guard": q_result,
+                "error": q_result["message"]
+            }
+
+        logger.info(f"[Pipeline] Post-QualityGuard {format_memory_log()}")
 
         rgb_img = cv2.cvtColor(bgr_img, cv2.COLOR_BGR2RGB)
         pil_img = Image.fromarray(rgb_img)
@@ -550,7 +624,8 @@ class CropHealthPipeline:
             # Immediately release classification tensors
             del input_tensor_cls, probs, top_probs, top_indices
             gc.collect()
-            logger.info(f"[Pipeline] Post-Classification RSS: {get_process_memory_mb()} MB")
+            trim_memory()
+            logger.info(f"[Pipeline] Post-Classification {format_memory_log()}")
 
             # Step 4: Authentic Grad-CAM Generation (Explicitly attributed to EfficientNet-B0)
             gradcam_overlay_bgr = None
@@ -578,8 +653,9 @@ class CropHealthPipeline:
                     if self.eff_model is not None:
                         self.eff_model.zero_grad(set_to_none=True)
                     gc.collect()
+                    trim_memory()
 
-            logger.info(f"[Pipeline] Post-GradCAM RSS: {get_process_memory_mb()} MB")
+            logger.info(f"[Pipeline] Post-GradCAM {format_memory_log()}")
 
             # Step 5: U-Net Lesion Segmentation & Severity Estimation
             seg_mask_prob = None
@@ -595,8 +671,9 @@ class CropHealthPipeline:
                     seg_mask_prob = None
                 finally:
                     gc.collect()
+                    trim_memory()
 
-            logger.info(f"[Pipeline] Post-UNet RSS: {get_process_memory_mb()} MB")
+            logger.info(f"[Pipeline] Post-UNet {format_memory_log()}")
 
             # Determine classifier certainty
             is_uncertain = top_pred["confidence"] < 40.0
@@ -628,6 +705,7 @@ class CropHealthPipeline:
             if seg_mask_prob is not None:
                 del seg_mask_prob
             gc.collect()
+            trim_memory()
 
             # Save visualization files if requested
             vis_paths = {}
@@ -649,17 +727,21 @@ class CropHealthPipeline:
 
         except (MemoryError, torch.cuda.OutOfMemoryError) as oom_exc:
             gc.collect()
-            logger.error(f"[Pipeline] MemoryError during AI inference: {oom_exc}. RSS: {get_process_memory_mb()} MB")
+            trim_memory()
+            logger.error(f"[Pipeline] MemoryError during AI inference: {oom_exc}. {format_memory_log()}")
             return {
                 "success": False,
                 "stage": "OUT_OF_MEMORY",
                 "error": f"AI diagnostic pipeline exceeded memory limits during inference: {str(oom_exc)}"
             }
         finally:
-            del rgb_img, pil_img, bgr_img
+            bgr_img = None
+            rgb_img = None
+            pil_img = None
             gc.collect()
+            trim_memory()
 
-        logger.info(f"[Pipeline] Finished process_image successfully. Final RSS: {get_process_memory_mb()} MB")
+        logger.info(f"[Pipeline] Finished process_image successfully. Final {format_memory_log()}")
 
         return {
             "success": True,
@@ -692,9 +774,38 @@ class CropHealthPipeline:
                 "error": f"Image file not found: {image_path}"
             }
 
-        # Step 1: Quality guard & foliage check
-        q_result = self.quality_guard.inspect_image(image_path)
-        if not q_result["is_valid"]:
+        # Initialize image variables before any processing to guarantee safe cleanup
+        bgr_img = None
+        leaf_m = None
+        hsv = None
+        mask_uint8 = None
+        gray_lesions = None
+        norm_lesions = None
+        colored_hm = None
+        gradcam_overlay_bgr = None
+        seg_overlay_bgr = None
+
+        # Pre-decode integrity and dimension checks to reject corrupt/truncated/oversized images
+        # BEFORE cv2.imread() is ever called.
+        try:
+            header_w, header_h = verify_image_file_integrity(image_path)
+        except Exception as e:
+            return {
+                "success": False,
+                "stage": "QUALITY_GUARD",
+                "quality_guard": {
+                    "is_valid": False,
+                    "status": "REJECTED",
+                    "reason": "CORRUPTED_IMAGE",
+                    "message": "The uploaded file is corrupted, truncated, or not a valid image format.",
+                    "metrics": {"error": str(e)}
+                },
+                "error": "The uploaded file is corrupted, truncated, or not a valid image format."
+            }
+
+        if (header_w > self.quality_guard.max_res[0] or header_h > self.quality_guard.max_res[1] or
+            header_w < self.quality_guard.min_res[0] or header_h < self.quality_guard.min_res[1]):
+            q_result = self.quality_guard.inspect_image(image_path, original_shape=(header_h, header_w))
             return {
                 "success": False,
                 "stage": "QUALITY_GUARD",
@@ -702,6 +813,7 @@ class CropHealthPipeline:
                 "error": q_result["message"]
             }
 
+        # Decode image once from disk and cap dimensions
         bgr_img = cv2.imread(image_path)
         if bgr_img is None or bgr_img.size == 0:
             return {
@@ -710,7 +822,27 @@ class CropHealthPipeline:
                 "error": "Failed to decode image pixels from file."
             }
 
-        h, w = bgr_img.shape[:2]
+        orig_h, orig_w = bgr_img.shape[:2]
+        max_dim = 640
+        if max(orig_h, orig_w) > max_dim:
+            scale = max_dim / float(max(orig_h, orig_w))
+            w, h = int(round(orig_w * scale)), int(round(orig_h * scale))
+            bgr_img = cv2.resize(bgr_img, (w, h), interpolation=cv2.INTER_AREA)
+        else:
+            h, w = orig_h, orig_w
+
+        # Step 1: Quality guard & foliage check using downscaled array
+        q_result = self.quality_guard.inspect_image(bgr_img, original_shape=(orig_h, orig_w))
+        if not q_result["is_valid"]:
+            bgr_img = None
+            gc.collect()
+            trim_memory()
+            return {
+                "success": False,
+                "stage": "QUALITY_GUARD",
+                "quality_guard": q_result,
+                "error": q_result["message"]
+            }
 
         # Calculate severity and lesion mask
         severity_result = self.severity_estimator.calculate_severity(
@@ -817,6 +949,19 @@ class CropHealthPipeline:
             seg_file = output_dir / f"{stem}_segmentation.jpg"
             cv2.imwrite(str(seg_file), seg_overlay_bgr)
             vis_paths["segmentation_path"] = str(seg_file)
+
+        # Explicitly release transient OpenCV arrays
+        bgr_img = None
+        leaf_m = None
+        hsv = None
+        mask_uint8 = None
+        gray_lesions = None
+        norm_lesions = None
+        colored_hm = None
+        gradcam_overlay_bgr = None
+        seg_overlay_bgr = None
+        gc.collect()
+        trim_memory()
 
         return {
             "success": True,

@@ -124,7 +124,8 @@ def seed_initial_accounts():
 def health_check():
     return {
         "status": "healthy",
-        "service": settings.PROJECT_NAME,
+        "service": "AgriShield AI",
         "database": "connected",
-        "version": "1.0.0"
+        "version": "1.0.1",
+        "build": "deploy_fix_20261126"
     }

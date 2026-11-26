@@ -56,157 +56,173 @@ async def create_scan(
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
-    # Validate content type
-    if not file.content_type.startswith("image/"):
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Uploaded file must be a valid image (JPEG, PNG, WebP)."
-        )
-
-    # Save uploaded file to disk
-    timestamp_str = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
-    clean_filename = f"{current_user.id}_{timestamp_str}_{file.filename}"
-    file_path = settings.UPLOAD_DIR / clean_filename
-
-    with open(file_path, "wb") as buffer:
-        shutil.copyfileobj(file.file, buffer)
-
-    # Execute complete AI diagnostic pipeline with memory protection and fallback
     try:
-        pipeline = get_pipeline()
-        diag_result = pipeline.process_image(
-            image_path=str(file_path),
-            save_visualizations=True,
-            output_dir=settings.STATIC_DIR
-        )
-    except Exception as exc:
-        pipeline = get_pipeline()
-        diag_result = pipeline._fallback_cv_diagnosis(
-            image_path=str(file_path),
-            save_visualizations=True,
-            output_dir=settings.STATIC_DIR
-        )
-
-    if not diag_result["success"]:
-        stage = diag_result.get("stage", "UNKNOWN")
-        if stage == "QUALITY_GUARD":
-            q_guard = diag_result.get("quality_guard", {})
-            raise HTTPException(
-                status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
-                detail={
-                    "message": q_guard.get("message", "Image quality rejected"),
-                    "reason": q_guard.get("reason", "UNKNOWN_QUALITY_REASON"),
-                    "metrics": q_guard.get("metrics", {}),
-                    "stage": stage
-                }
-            )
-        elif stage == "MODEL_UNAVAILABLE":
-            raise HTTPException(
-                status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-                detail={
-                    "message": "AI diagnostic models are currently unavailable or unvalidated.",
-                    "error": diag_result.get("error"),
-                    "model_status": diag_result.get("model_status"),
-                    "stage": stage
-                }
-            )
-        else:
+        # Validate content type
+        if not file.content_type.startswith("image/"):
             raise HTTPException(
                 status_code=status.HTTP_400_BAD_REQUEST,
-                detail={
-                    "message": diag_result.get("error", "AI diagnostic pipeline failed to process image."),
-                    "stage": stage
-                }
+                detail="Uploaded file must be a valid image (JPEG, PNG, WebP)."
             )
 
-    pred = diag_result["prediction"]
-    severity = diag_result["severity"]
-    vis = diag_result["visualizations"]
+        # Ensure upload and static directories exist
+        upload_dir = Path(str(settings.UPLOAD_DIR))
+        upload_dir.mkdir(parents=True, exist_ok=True)
+        static_dir = Path(str(settings.STATIC_DIR))
+        static_dir.mkdir(parents=True, exist_ok=True)
 
-    # Compute URL paths for static assets
-    gc_url = f"/static/{Path(vis['gradcam_path']).name}" if "gradcam_path" in vis else None
-    seg_url = f"/static/{Path(vis['segmentation_path']).name}" if "segmentation_path" in vis else None
-    img_url = f"/uploads/{clean_filename}"
+        # Save uploaded file to disk
+        timestamp_str = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
+        clean_filename = f"{current_user.id}_{timestamp_str}_{file.filename}"
+        file_path = upload_dir / clean_filename
 
-    # Build management guidance based on severity and condition
-    rec_text = severity.get("recommendation", "Continue standard agronomic monitoring.")
-    mgmt_advice = f"Severity: {severity['severity_level']} ({severity['affected_percentage']}% affected canopy). {rec_text}"
-    prev_advice = f"Causal pathogen: {pred.get('causal_agent', 'N/A')}. Ensure adequate air circulation and practice balanced irrigation."
+        with open(file_path, "wb") as buffer:
+            shutil.copyfileobj(file.file, buffer)
 
-    # Persist in DB
-    scan = Scan(
-        user_id=current_user.id,
-        original_filename=file.filename,
-        image_path=img_url,
-        crop=pred["crop"],
-        crop_hi=pred.get("crop_hi", ""),
-        crop_gu=pred.get("crop_gu", ""),
-        disease_condition=pred["condition"],
-        disease_condition_hi=pred.get("condition_hi", ""),
-        disease_condition_gu=pred.get("condition_gu", ""),
-        confidence=pred["confidence"],
-        is_healthy=pred["is_healthy"],
-        causal_agent=pred.get("causal_agent", "N/A"),
-        severity_level=severity["severity_level"],
-        affected_percentage=severity["affected_percentage"],
-        lesion_count=severity["lesion_count"],
-        bounding_boxes=severity.get("bounding_boxes", []),
-        gradcam_path=gc_url,
-        segmentation_path=seg_url,
-        quality_status="PASSED",
-        quality_metrics=diag_result["quality_guard"]["metrics"],
-        management_advice=mgmt_advice,
-        prevention_advice=prev_advice
-    )
-    db.add(scan)
-    db.commit()
-    db.refresh(scan)
+        # Execute complete AI diagnostic pipeline with memory protection and fallback
+        try:
+            pipeline = get_pipeline()
+            diag_result = pipeline.process_image(
+                image_path=str(file_path),
+                save_visualizations=True,
+                output_dir=static_dir
+            )
+        except Exception as exc:
+            pipeline = get_pipeline()
+            diag_result = pipeline._fallback_cv_diagnosis(
+                image_path=str(file_path),
+                save_visualizations=True,
+                output_dir=static_dir
+            )
 
-    # Persist top-K predictions
-    for rank, alt in enumerate(diag_result.get("alternatives", []), start=2):
-        sp = ScanPrediction(
-            scan_id=scan.id,
-            class_id=alt["class_id"],
-            crop=alt["crop"],
-            condition=alt["condition"],
-            confidence=alt["confidence"],
-            rank=rank
-        )
-        db.add(sp)
-    db.commit()
+        if not diag_result["success"]:
+            stage = diag_result.get("stage", "UNKNOWN")
+            if stage == "QUALITY_GUARD":
+                q_guard = diag_result.get("quality_guard", {})
+                raise HTTPException(
+                    status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+                    detail={
+                        "message": q_guard.get("message", "Image quality rejected"),
+                        "reason": q_guard.get("reason", "UNKNOWN_QUALITY_REASON"),
+                        "metrics": q_guard.get("metrics", {}),
+                        "stage": stage
+                    }
+                )
+            elif stage == "MODEL_UNAVAILABLE":
+                raise HTTPException(
+                    status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+                    detail={
+                        "message": "AI diagnostic models are currently unavailable or unvalidated.",
+                        "error": diag_result.get("error"),
+                        "model_status": diag_result.get("model_status"),
+                        "stage": stage
+                    }
+                )
+            else:
+                raise HTTPException(
+                    status_code=status.HTTP_400_BAD_REQUEST,
+                    detail={
+                        "message": diag_result.get("error", "AI diagnostic pipeline failed to process image."),
+                        "stage": stage
+                    }
+                )
 
-    # Trigger Farmer Notification
-    if pred["is_healthy"]:
-        send_farmer_alert(
-            db=db,
+        pred = diag_result["prediction"]
+        severity = diag_result["severity"]
+        vis = diag_result["visualizations"]
+
+        # Compute URL paths for static assets
+        gc_url = f"/static/{Path(vis['gradcam_path']).name}" if "gradcam_path" in vis else None
+        seg_url = f"/static/{Path(vis['segmentation_path']).name}" if "segmentation_path" in vis else None
+        img_url = f"/uploads/{clean_filename}"
+
+        # Build management guidance based on severity and condition
+        rec_text = severity.get("recommendation", "Continue standard agronomic monitoring.")
+        mgmt_advice = f"Severity: {severity['severity_level']} ({severity['affected_percentage']}% affected canopy). {rec_text}"
+        prev_advice = f"Causal pathogen: {pred.get('causal_agent', 'N/A')}. Ensure adequate air circulation and practice balanced irrigation."
+
+        # Persist in DB
+        scan = Scan(
             user_id=current_user.id,
-            title=f"{pred['crop']} Foliage Status: Healthy",
-            message=f"Scan analysis confirmed your {pred['crop']} leaf is in healthy condition with {pred['confidence']}% confidence. Keep up regular maintenance!",
-            alert_type="SCAN_COMPLETED",
-            severity="info",
-            title_hi=f"{pred.get('crop_hi', pred['crop'])} स्थिति: स्वस्थ",
-            title_gu=f"{pred.get('crop_gu', pred['crop'])} સ્થિતિ: સ્વસ્થ",
-            message_hi=f"{pred.get('crop_hi', pred['crop'])} पत्ती स्वस्थ पाई गई है ({pred['confidence']}%)।",
-            message_gu=f"{pred.get('crop_gu', pred['crop'])} પાન સ્વસ્થ જણાયું છે ({pred['confidence']}%)。"
+            original_filename=file.filename,
+            image_path=img_url,
+            crop=pred["crop"],
+            crop_hi=pred.get("crop_hi", ""),
+            crop_gu=pred.get("crop_gu", ""),
+            disease_condition=pred["condition"],
+            disease_condition_hi=pred.get("condition_hi", ""),
+            disease_condition_gu=pred.get("condition_gu", ""),
+            confidence=pred["confidence"],
+            is_healthy=pred["is_healthy"],
+            causal_agent=pred.get("causal_agent", "N/A"),
+            severity_level=severity["severity_level"],
+            affected_percentage=severity["affected_percentage"],
+            lesion_count=severity["lesion_count"],
+            bounding_boxes=severity.get("bounding_boxes", []),
+            gradcam_path=gc_url,
+            segmentation_path=seg_url,
+            quality_status="PASSED",
+            quality_metrics=diag_result["quality_guard"]["metrics"],
+            management_advice=mgmt_advice,
+            prevention_advice=prev_advice
         )
-    else:
-        alert_title = f"{pred['crop']} Health Update: {pred['condition']}"
-        alert_msg = f"Diagnosis confirmed {pred['condition']} with {pred['confidence']}% confidence. Damage Severity: {severity['severity_level']} ({severity['affected_percentage']}%)."
-        send_farmer_alert(
-            db=db,
-            user_id=current_user.id,
-            title=alert_title,
-            message=alert_msg,
-            alert_type="HIGH_SEVERITY" if severity["severity_level"] in ["High", "Critical"] else "DISEASE_DETECTED",
-            severity="critical" if severity["severity_level"] == "Critical" else "warning",
-            title_hi=f"{pred.get('crop_hi', pred['crop'])} स्वास्थ्य सूचना: {pred.get('condition_hi', pred['condition'])}",
-            title_gu=f"{pred.get('crop_gu', pred['crop'])} આરોગ્ય અપડેટ: {pred.get('condition_gu', pred['condition'])}",
-            message_hi=f"निदान: {pred.get('condition_hi', pred['condition'])}, गंभीरता: {severity['severity_level']} ({severity['affected_percentage']}%)।",
-            message_gu=f"નિદાન: {pred.get('condition_gu', pred['condition'])}, તીવ્રતા: {severity['severity_level']} ({severity['affected_percentage']}%)।"
-        )
+        db.add(scan)
+        db.commit()
+        db.refresh(scan)
 
-    # Format response
-    return format_scan_response(scan, diag_result.get("alternatives", []))
+        # Persist top-K predictions
+        for rank, alt in enumerate(diag_result.get("alternatives", []), start=2):
+            sp = ScanPrediction(
+                scan_id=scan.id,
+                class_id=alt["class_id"],
+                crop=alt["crop"],
+                condition=alt["condition"],
+                confidence=alt["confidence"],
+                rank=rank
+            )
+            db.add(sp)
+        db.commit()
+
+        # Trigger Farmer Notification
+        if pred["is_healthy"]:
+            send_farmer_alert(
+                db=db,
+                user_id=current_user.id,
+                title=f"{pred['crop']} Foliage Status: Healthy",
+                message=f"Scan analysis confirmed your {pred['crop']} leaf is in healthy condition with {pred['confidence']}% confidence. Keep up regular maintenance!",
+                alert_type="SCAN_COMPLETED",
+                severity="info",
+                title_hi=f"{pred.get('crop_hi', pred['crop'])} स्थिति: स्वस्थ",
+                title_gu=f"{pred.get('crop_gu', pred['crop'])} સ્થિતિ: સ્વસ્થ",
+                message_hi=f"{pred.get('crop_hi', pred['crop'])} पत्ती स्वस्थ पाई गई है ({pred['confidence']}%)।",
+                message_gu=f"{pred.get('crop_gu', pred['crop'])} પાન સ્વસ્થ જણાયું છે ({pred['confidence']}%)。"
+            )
+        else:
+            alert_title = f"{pred['crop']} Health Update: {pred['condition']}"
+            alert_msg = f"Diagnosis confirmed {pred['condition']} with {pred['confidence']}% confidence. Damage Severity: {severity['severity_level']} ({severity['affected_percentage']}%)."
+            send_farmer_alert(
+                db=db,
+                user_id=current_user.id,
+                title=alert_title,
+                message=alert_msg,
+                alert_type="HIGH_SEVERITY" if severity["severity_level"] in ["High", "Critical"] else "DISEASE_DETECTED",
+                severity="critical" if severity["severity_level"] == "Critical" else "warning",
+                title_hi=f"{pred.get('crop_hi', pred['crop'])} स्वास्थ्य सूचना: {pred.get('condition_hi', pred['condition'])}",
+                title_gu=f"{pred.get('crop_gu', pred['crop'])} આરોગ્ય અપડેટ: {pred.get('condition_gu', pred['condition'])}",
+                message_hi=f"निदान: {pred.get('condition_hi', pred['condition'])}, गंभीरता: {severity['severity_level']} ({severity['affected_percentage']}%)।",
+                message_gu=f"નિદાન: {pred.get('condition_gu', pred['condition'])}, તીવ્રતા: {severity['severity_level']} ({severity['affected_percentage']}%)।"
+            )
+
+        # Format response
+        return format_scan_response(scan, diag_result.get("alternatives", []))
+    except HTTPException:
+        raise
+    except Exception as exc:
+        import traceback
+        traceback.print_exc()
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Scan error: {str(exc)}"
+        )
 
 def format_scan_response(scan: Scan, alternatives: list = None) -> dict:
     alts = alternatives or []

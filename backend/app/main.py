@@ -126,6 +126,6 @@ def health_check():
         "status": "healthy",
         "service": "AgriShield AI",
         "database": "connected",
-        "version": "1.0.2",
-        "build": "deploy_cloud_lightweight_20261126"
+        "version": "1.0.3",
+        "build": "deploy_cloud_scan_verified_20261126"
     }
